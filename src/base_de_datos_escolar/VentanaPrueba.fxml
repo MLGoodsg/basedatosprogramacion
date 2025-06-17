@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.VentanaPruebaController">
+    <Label cache="true" cacheHint="QUALITY" contentDisplay="BOTTOM" depthTest="ENABLE" graphicTextGap="6.0" text="Sistema Escolar" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" StackPane.alignment="TOP_CENTER">
+      <font>
+         <Font name="System Bold" size="19.0" />
+      </font>
+      <StackPane.margin>
+         <Insets />
+      </StackPane.margin></Label>
+</StackPane>
