@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="base_de_datos_escolar.LoginController">
+    <children>
+        <Label text="Iniciar Sesión" layoutX="130" layoutY="20"/>
+        <TextField fx:id="usernameField" layoutX="90" layoutY="60" promptText="Usuario"/>
+        <PasswordField fx:id="passwordField" layoutX="90" layoutY="100" promptText="Contraseña"/>
+        <Button text="Ingresar" layoutX="140" layoutY="140" onAction="#handleLogin"/>
+        <Hyperlink text="¿No tienes cuenta? Regístrate" layoutX="90" layoutY="180" onAction="#goToSignUp"/>
+    </children>
+</AnchorPane>
