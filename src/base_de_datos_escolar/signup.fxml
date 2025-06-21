@@ -6,11 +6,17 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="base_de_datos_escolar.SignupController">
     <children>
         <Label text="Registro" layoutX="150" layoutY="10"/>
+
         <TextField fx:id="usuarioField" layoutX="90" layoutY="40" promptText="Usuario"/>
         <TextField fx:id="nombreField" layoutX="90" layoutY="80" promptText="Nombre"/>
         <TextField fx:id="apellidoField" layoutX="90" layoutY="120" promptText="Apellido"/>
         <PasswordField fx:id="contraseniaField" layoutX="90" layoutY="160" promptText="Contraseña"/>
-        <Button text="Registrar" layoutX="140" layoutY="200" onAction="#handleRegister"/>
-        <Hyperlink text="¿Ya tienes cuenta? Inicia sesión" layoutX="90" layoutY="240" onAction="#goToLogin"/>
+
+        <ComboBox fx:id="tipoUsuarioBox" layoutX="90" layoutY="200" promptText="Tipo de Usuario"/>
+        <TextField fx:id="cedulaEmpleadoField" layoutX="90" layoutY="240" promptText="Cédula Empleado (opcional)"/>
+        <ComboBox fx:id="comboInstitucion" layoutX="90" layoutY="280" promptText="Seleccione institución (opcional)"/>
+
+        <Button text="Registrar" layoutX="140" layoutY="320" onAction="#handleRegister"/>
+        <Hyperlink text="¿Ya tienes cuenta? Inicia sesión" layoutX="90" layoutY="360" onAction="#goToLogin"/>
     </children>
 </AnchorPane>

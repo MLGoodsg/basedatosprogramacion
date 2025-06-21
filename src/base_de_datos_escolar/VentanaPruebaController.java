@@ -22,6 +22,20 @@ public class VentanaPruebaController {
     }
 
     @FXML
+    private void abrirRegistroInstitucion() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("registro_institucion.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Registro de Institución Educativa");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void irARegistro() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
@@ -34,4 +48,3 @@ public class VentanaPruebaController {
         }
     }
 }
-
