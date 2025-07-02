@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainPane" xmlns:fx="http://javafx.com/fxml" fx:controller="base_de_datos_escolar.clasesController.MainController">
+    <left>
+        <VBox spacing="15" prefWidth="200" style="-fx-background-color: #4C2F91;" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx">
+            <Label text="Smart School" style="-fx-text-fill: white; -fx-font-size: 20px;"/>
+            <Button text="Dashboard" onAction="#handleDashboard" prefWidth="160"/>
+            <Button text="Students" onAction="#handleStudents" prefWidth="160"/>
+            <Button text="Teachers" onAction="#handleTeachers" prefWidth="160"/>
+            <Button text="Parents" onAction="#handleParents" prefWidth="160"/>
+            <Button text="Events" onAction="#handleEvents" prefWidth="160"/>
+            <Button text="Exams" onAction="#handleExams" prefWidth="160"/>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane fx:id="centerContent"/>
+    </center>
+</BorderPane>

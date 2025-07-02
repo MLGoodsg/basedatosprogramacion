@@ -1,4 +1,4 @@
-package base_de_datos_escolar;
+package base_de_datos_escolar.clasesController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,12 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class VentanaPruebaController {
+public class VentanaPrincipalController {
 
     @FXML
     private void irALogin() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/base_de_datos_escolar/archivos_fxml/login.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Login");
             stage.setScene(new Scene(root));
@@ -24,7 +24,7 @@ public class VentanaPruebaController {
     @FXML
     private void abrirRegistroInstitucion() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("registro_institucion.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/archivos_fxml/registro_institucion.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Registro de Institución Educativa");
@@ -38,7 +38,7 @@ public class VentanaPruebaController {
     @FXML
     private void irARegistro() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/base_de_datos_escolar/archivos_fxml/signup.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Registro");
             stage.setScene(new Scene(root));

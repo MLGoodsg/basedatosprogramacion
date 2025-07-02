@@ -1,0 +1,163 @@
+.side_anchorpane{
+    -fx-background-color: #05a7e2;
+    -fx-border-color: #f4f4f4;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+.vbox_pane{
+    -fx-background-color: #e9e9e9;
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+.seleccionador_pane{
+    -fx-background-color: #e9e9e9;
+    -fx-border-color: #e9e9e9;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+}
+.dashboard_button{
+    -fx-background-color: #05a7e2;
+    -fx-border-color: #05a7e2;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Raleway";
+    -fx-effect: null;
+    fx-padding: 5 5 5 10; /* ajusta si es necesario */
+    -fx-translate-x: 0;
+    -fx-alignment: CENTER_LEFT;
+}
+.dashboard_button_active{
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #f4f4f4;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+    -fx-text-fill: #05a7e2;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Raleway";
+}
+.contadorEstudiantes{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #ffde59;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+.contadorEstudianteLine{
+    -fx-background-color: #ffde59;
+    -fx-border-color: #ffde59;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20 0 0 20;
+    -fx-background-radius: 20 0 0 20;
+}
+.contadorMaestroLine{
+    -fx-background-color: #b996ff;
+    -fx-border-color: #b996ff;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 15 0 0 15;
+    -fx-background-radius: 15 0 0 15;
+}
+.contadorMaestros{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #b996ff;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+.contadorEscuelaLine{
+    -fx-background-color: #48d0e8;
+    -fx-border-color: #48d0e8;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 15 0 0 15;
+    -fx-background-radius: 15 0 0 15;
+}
+.contadorEscuela{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #48d0e8;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+.contadorPadresLine{
+    -fx-background-color: #00bf63;
+    -fx-border-color: #00bf63;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 15 0 0 15;
+    -fx-background-radius: 15 0 0 15;
+}
+.contadorPadres{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #00bf63;
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+
+
+.combo-box {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 2;
+    -fx-border-color: #48d0e8;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box .list-cell {
+    -fx-background-radius: 10;
+}
+
+.combo-box .arrow-button {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.combo-box .text-field {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+.fondoPane{
+    -fx-border-radius: 15 15 15 15;
+    -fx-background-radius: 15 15 15 15;
+    -fx-border-color: #48d0e8;
+    -fx-background-color: #FFFFFF;
+}
+.graficaPane{
+    -fx-border-radius: 15 15 15 15;
+    -fx-background-radius: 15 15 15 15;
+    -fx-border-color: #48d0e8;
+    -fx-background-color: #FFFFFF;
+}
+.primerosPuestos{
+    -fx-border-radius: 15 15 15 15;
+    -fx-background-radius: 15 15 15 15;
+    -fx-border-color: #48d0e8;
+    -fx-background-color: #e9e9e9;
+}
+.circular-image {
+    -fx-background-radius: 100em;
+    -fx-border-radius: 100em;
+    -fx-border-color: #3498db;
+    -fx-border-width: 3px;
+    -fx-padding: 0;
+}

@@ -1,4 +1,4 @@
-package base_de_datos_escolar;
+package base_de_datos_escolar.clasesController;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -27,7 +27,7 @@ public class RegistroInstitucionController {
 
     @FXML
     public void initialize() {
-        comboNivelEducativo.setItems(FXCollections.observableArrayList("primaria", "secundaria", "ambos"));
+        comboNivelEducativo.setItems(FXCollections.observableArrayList("Primaria", "Secundaria", "Ambos"));
 
         cargarProvincias();
 
@@ -50,23 +50,28 @@ public class RegistroInstitucionController {
         });
     }
 
+
     private Connection conectar() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/base_de_datos_escolar", "root", "root");
+        return DriverManager.getConnection(
+                "jdbc:mysql://maglev.proxy.rlwy.net:24319/railway",
+                "root",
+                "mfMmjJemvZXmztSmXQiraWQjUBDLmhPE"
+        );
     }
 
     private void cargarProvincias() {
         provinciasMap.clear();
         comboProvincia.getItems().clear();
 
-        String sql = "SELECT id_provincia, nombre FROM PROVINCIA ORDER BY nombre";
+        String consultaProvincia = "SELECT id_provincia, nombre FROM provincia ORDER BY nombre";
 
         try (Connection conn = conectar();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+             Statement crearConsutla = conn.createStatement();
+             ResultSet provincia = crearConsutla.executeQuery(consultaProvincia)) {
 
-            while (rs.next()) {
-                int id = rs.getInt("id_provincia");
-                String nombre = rs.getString("nombre");
+            while (provincia.next()) {
+                int id = provincia.getInt("id_provincia");
+                String nombre = provincia.getString("nombre");
                 provinciasMap.put(nombre, id);
             }
             comboProvincia.getItems().addAll(provinciasMap.keySet());
@@ -80,17 +85,17 @@ public class RegistroInstitucionController {
         distritosMap.clear();
         comboDistrito.getItems().clear();
 
-        String sql = "SELECT id_distrito, nombre FROM DISTRITO WHERE id_provincia = ? ORDER BY nombre";
+        String consultaDistrito = "SELECT id_distrito, nombre FROM distrito WHERE id_provincia = ? ORDER BY nombre";
 
         try (Connection conn = conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement busquedaDistrito = conn.prepareStatement(consultaDistrito)) {
 
-            stmt.setInt(1, idProvincia);
-            ResultSet rs = stmt.executeQuery();
+            busquedaDistrito.setInt(1, idProvincia);
+            ResultSet distrito= busquedaDistrito.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt("id_distrito");
-                String nombre = rs.getString("nombre");
+            while (distrito.next()) {
+                int id = distrito.getInt("id_distrito");
+                String nombre = distrito.getString("nombre");
                 distritosMap.put(nombre, id);
             }
             comboDistrito.getItems().addAll(distritosMap.keySet());
@@ -104,17 +109,17 @@ public class RegistroInstitucionController {
         corregimientosMap.clear();
         comboCorregimiento.getItems().clear();
 
-        String sql = "SELECT id_corregimiento, nombre FROM CORREGIMIENTO WHERE id_distrito = ? ORDER BY nombre";
+        String consultaCorregimientoSQL = "SELECT id_corregimiento, nombre FROM corregimiento WHERE id_distrito = ? ORDER BY nombre";
 
         try (Connection conn = conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement busquedaCorregimiento = conn.prepareStatement(consultaCorregimientoSQL)) {
 
-            stmt.setInt(1, idDistrito);
-            ResultSet rs = stmt.executeQuery();
+            busquedaCorregimiento.setInt(1, idDistrito);
+            ResultSet corregimiento = busquedaCorregimiento.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt("id_corregimiento");
-                String nombre = rs.getString("nombre");
+            while (corregimiento.next()) {
+                int id = corregimiento.getInt("id_corregimiento");
+                String nombre = corregimiento.getString("nombre");
                 corregimientosMap.put(nombre, id);
             }
             comboCorregimiento.getItems().addAll(corregimientosMap.keySet());
@@ -163,21 +168,21 @@ public class RegistroInstitucionController {
         int idDistrito = distritosMap.get(distrito);
         int idCorregimiento = corregimientosMap.get(corregimiento);
 
-        String sql = "INSERT INTO INSTITUCION_EDUCATIVA (nombre_institucion, anio_fundacion, capacidad_estudiantes, direccion, nivel_educativo, id_provincia, id_distrito, id_corregimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertarInstitucionSQL = "INSERT INTO institucion_educativa (nombre_institucion, anio_fundacion, capacidad_estudiantes, direccion, nivel_educativo, id_provincia, id_distrito, id_corregimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement datosInstitucion = conn.prepareStatement(insertarInstitucionSQL)) {
 
-            stmt.setString(1, nombre);
-            stmt.setInt(2, anioFundacion);
-            stmt.setInt(3, capacidadEstudiantes);
-            stmt.setString(4, direccion);
-            stmt.setString(5, nivelEducativo);
-            stmt.setInt(6, idProvincia);
-            stmt.setInt(7, idDistrito);
-            stmt.setInt(8, idCorregimiento);
+            datosInstitucion.setString(1, nombre);
+            datosInstitucion.setInt(2, anioFundacion);
+            datosInstitucion.setInt(3, capacidadEstudiantes);
+            datosInstitucion.setString(4, direccion);
+            datosInstitucion.setString(5, nivelEducativo);
+            datosInstitucion.setInt(6, idProvincia);
+            datosInstitucion.setInt(7, idDistrito);
+            datosInstitucion.setInt(8, idCorregimiento);
 
-            int filas = stmt.executeUpdate();
+            int filas = datosInstitucion.executeUpdate();
 
             if (filas > 0) {
                 mostrarAlerta("Registro exitoso", "Institución registrada correctamente.", AlertType.INFORMATION);

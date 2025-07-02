@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="641.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.clasesController.DashboardController">
+    <Label layoutX="47.0" layoutY="14.0" style="-fx-font-size: 18px;" text="Bienvenido al Panel Principal" />
+   <Pane fx:id="contadorEstudiantesPane" layoutX="444.0" layoutY="53.0" prefHeight="77.0" prefWidth="200.0" styleClass="contadorEstudiantes" stylesheets="@../estilo.css">
+      <children>
+         <Pane fx:id="contadorEstudianteLine" layoutX="-9.0" prefHeight="77.0" prefWidth="9.0" styleClass="contadorEstudianteLine" stylesheets="@../estilo.css" />
+         <Label fx:id="cantidadEstudiantesLbl" layoutX="92.0" layoutY="11.0" prefHeight="18.0" prefWidth="96.0" text="Estudiantes" textFill="#7b7b7b">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+
+         <Separator layoutX="79.0" layoutY="5.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
+         <Label fx:id="cantidadEstudiantes" layoutX="93.0" layoutY="29.0" prefHeight="40.0" prefWidth="96.0">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="59.0" fitWidth="81.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../imagenes/estudiantesimg.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <Pane fx:id="contadorEscuelasPane" layoutX="17.0" layoutY="53.0" prefHeight="77.0" prefWidth="200.0" styleClass="contadorEscuela" stylesheets="@../estilo.css">
+      <children>
+         <Pane fx:id="contadorEscuelaLine" layoutX="-9.0" prefHeight="77.0" prefWidth="9.0" styleClass="contadorEscuelaLine" stylesheets="@../estilo.css" />
+         <Label fx:id="cantidadEscuelaPane" layoutX="101.0" layoutY="11.0" prefHeight="27.0" prefWidth="108.0" text="Escuelas" textFill="#7b7b7b">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+
+         <Separator layoutX="88.0" layoutY="6.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
+         <Label fx:id="cantidadEscuela" layoutX="102.0" layoutY="33.0" prefHeight="40.0" prefWidth="108.0">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="59.0" fitWidth="81.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../imagenes/escuelaimg.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <Pane fx:id="contadorMaestrosPane" layoutX="230.0" layoutY="53.0" prefHeight="77.0" prefWidth="200.0" styleClass="contadorMaestros" stylesheets="@../estilo.css">
+      <children>
+         <Pane fx:id="contadorMaestroLine" layoutX="-8.0" prefHeight="77.0" prefWidth="9.0" styleClass="contadorMaestroLine" stylesheets="@../estilo.css" />
+         <Label fx:id="cantidadMaestroPane" layoutX="99.0" layoutY="11.0" prefHeight="27.0" prefWidth="108.0" text="Profesores" textFill="#7b7b7b">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+
+         <Separator layoutX="85.0" layoutY="6.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
+         <Label fx:id="cantidadMaestro" layoutX="98.0" layoutY="33.0" prefHeight="40.0" prefWidth="108.0">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="59.0" fitWidth="81.0" layoutX="18.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../imagenes/profesoresimg.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <Pane fx:id="contadorPadresPane" layoutX="660.0" layoutY="53.0" prefHeight="77.0" prefWidth="200.0" styleClass="contadorPadres" stylesheets="@../estilo.css">
+      <children>
+         <Pane fx:id="contadorPadresLine" layoutX="-9.0" prefHeight="77.0" prefWidth="9.0" styleClass="contadorPadresLine" stylesheets="@../estilo.css" />
+         <Label fx:id="cantidadPadresLbl" layoutX="93.0" layoutY="12.0" prefHeight="18.0" prefWidth="96.0" text="Padres" textFill="#7b7b7b">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+         
+         <Separator layoutX="79.0" layoutY="6.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
+         <Label fx:id="cantidadPadres" layoutX="93.0" layoutY="32.0" prefHeight="40.0" prefWidth="96.0">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="59.0" fitWidth="81.0" layoutX="12.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../imagenes/padresimg.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <ComboBox fx:id="cmbProvincia" layoutX="876.0" layoutY="94.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Separator layoutX="865.0" layoutY="59.0" orientation="VERTICAL" prefHeight="562.0" prefWidth="0.0" />
+   <Label layoutX="876.0" layoutY="52.0" text="Área de control">
+      <font>
+         <Font name="Raleway Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label layoutX="876.0" layoutY="74.0" text="Provincia" />
+   <Label layoutX="876.0" layoutY="130.0" text="Distrito" />
+   <ComboBox fx:id="cmbDistrito" layoutX="876.0" layoutY="147.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Label layoutX="876.0" layoutY="183.0" text="Corregimiento" />
+   <ComboBox fx:id="cmbCorregimiento" layoutX="876.0" layoutY="199.0" prefHeight="3.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Label layoutX="876.0" layoutY="255.0" text="Año académico" />
+   <ComboBox fx:id="cmbAnioacademico" layoutX="876.0" layoutY="271.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Label layoutX="876.0" layoutY="303.0" text="Sección" />
+   <ComboBox fx:id="cmbSeccion" layoutX="876.0" layoutY="319.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Label layoutX="876.0" layoutY="351.0" text="Rango de promedio" />
+   <ComboBox fx:id="cmbRangopromedio" layoutX="876.0" layoutY="367.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Label layoutX="876.0" layoutY="400.0" text="Sexo" />
+   <ComboBox fx:id="cmbSexo" layoutX="876.0" layoutY="416.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
+   <Pane fx:id="fondoPane" layoutX="653.0" layoutY="170.0" prefHeight="206.0" prefWidth="200.0" styleClass="fondoPane" stylesheets="@../estilo.css">
+      <children>
+         <Label layoutX="35.0" layoutY="10.0" text="Seguimiento">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+         <PieChart fx:id="graficaSeguimiento" layoutY="35.0" prefHeight="163.0" prefWidth="200.0" />
+      </children>
+   </Pane>
+   <Pane fx:id="fondoPane1" layoutX="17.0" layoutY="170.0" prefHeight="280.0" prefWidth="300.0" styleClass="fondoPane" stylesheets="@../estilo.css">
+      <children>
+         <BarChart fx:id="graficaPaneNivelE" layoutX="14.0" layoutY="34.0" prefHeight="232.0" prefWidth="272.0" styleClass="graficaPane" stylesheets="@../estilo.css">
+            <xAxis>
+               <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis side="LEFT" />
+            </yAxis>
+         </BarChart>
+         <Label layoutX="35.0" layoutY="10.0" text="Nivel educativo">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+      </children>
+   </Pane>
+   <Pane fx:id="fondoPane2" layoutX="653.0" layoutY="400.0" prefHeight="206.0" prefWidth="200.0" styleClass="fondoPane" stylesheets="@../estilo.css">
+      <children>
+         <Label layoutX="13.0" layoutY="5.0" text="Estadística de aprobación">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+         <PieChart fx:id="graficaAprob" layoutY="28.0" prefHeight="170.0" prefWidth="189.0" />
+      </children>
+   </Pane>
+   <Pane fx:id="primerosPuestos" layoutX="17.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
+      <children>
+         <ImageView fx:id="primerlugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+         <Label fx:id="nombrePrimerLugar" layoutX="7.0" layoutY="118.0" text="Label">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+      </children></Pane>
+   <Pane layoutX="161.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
+      <children>
+         <ImageView fx:id="segundolugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+         <Label fx:id="nombreSegundLugar" layoutX="14.0" layoutY="118.0" text="Label">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+      </children></Pane>
+   <Pane layoutX="304.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
+      <children>
+         <ImageView fx:id="tercerlugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+         <Label fx:id="nombreTercerLugar" layoutX="14.0" layoutY="118.0" text="Label">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+      </children></Pane>
+   <Separator layoutX="27.0" layoutY="139.0" prefHeight="3.0" prefWidth="811.0" />
+   <Pane fx:id="fondoPane11" layoutX="330.0" layoutY="172.0" prefHeight="280.0" prefWidth="300.0" styleClass="fondoPane" stylesheets="@../estilo.css">
+      <children>
+         <BarChart fx:id="graficaPaneAsistencia" layoutX="14.0" layoutY="34.0" prefHeight="232.0" prefWidth="272.0" styleClass="graficaPane" stylesheets="@../estilo.css">
+            <xAxis>
+               <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis side="LEFT" />
+            </yAxis>
+         </BarChart>
+         <Label layoutX="35.0" layoutY="10.0" text="Asistencia">
+            <font>
+               <Font name="Raleway Bold" size="14.0" />
+            </font>
+         </Label>
+      </children>
+   </Pane>
+   <Hyperlink layoutX="996.0" layoutY="462.0" onAction="#borrarFiltro" text="Borrar filtro" />
+</AnchorPane>
