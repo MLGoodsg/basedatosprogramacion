@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0" stylesheets="@../estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.NuevoPanel">
+   <children>
+      <VBox fx:id="vbox_pane" prefHeight="400.0" prefWidth="162.0" styleClass="vbox_pane">
+         <children>
+            <AnchorPane fx:id="side_anchorpane" prefHeight="641.0" prefWidth="217.0" styleClass="side_anchorpane">
+               <children>
+                  <Button fx:id="dashboard_button" layoutX="44.0" layoutY="99.0" mnemonicParsing="false" onAction="#dashboardClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" text="Panel de control" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Raleway Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="estudiantes_button" layoutX="44.0" layoutY="139.0" mnemonicParsing="false" onAction="#estudiantebuttonClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" stylesheets="@../estilo.css" text="Estudiantes" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Raleway Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="maestros_button" layoutX="44.0" layoutY="179.0" mnemonicParsing="false" onAction="#maestrobuttonClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" stylesheets="@../estilo.css" text="Maestros" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Raleway Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="53.0" layoutY="600.0" text="Label" />
+                  <Label layoutX="18.0" layoutY="312.0" text="Label" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="central_pane" prefHeight="641.0" prefWidth="917.0"/>
+
+   </children>
+</HBox>
