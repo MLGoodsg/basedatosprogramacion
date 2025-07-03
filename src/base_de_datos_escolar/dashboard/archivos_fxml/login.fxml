@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="281.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="base_de_datos_escolar.clasesController.LoginController">
+<AnchorPane prefHeight="281.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
     <children>
         <Label layoutX="91.0" layoutY="26.0" text="Iniciar Sesión">
          <font>

@@ -1,4 +1,4 @@
-package base_de_datos_escolar.clasesController;
+package base_de_datos_escolar.dashboard.clasesController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

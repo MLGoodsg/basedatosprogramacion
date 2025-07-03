@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="641.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.clasesController.DashboardController">
+<AnchorPane prefHeight="641.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.DashboardController">
     <Label layoutX="47.0" layoutY="14.0" style="-fx-font-size: 18px;" text="Bienvenido al Panel Principal" />
    <Pane fx:id="contadorEstudiantesPane" layoutX="444.0" layoutY="53.0" prefHeight="77.0" prefWidth="200.0" styleClass="contadorEstudiantes" stylesheets="@../estilo.css">
       <children>

@@ -1,4 +1,4 @@
-package base_de_datos_escolar.clasesController;
+package base_de_datos_escolar.dashboard.clasesController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -27,7 +27,7 @@ public class NuevoPanel {
 
     private void loadUI(String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/archivos_fxml/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/" + fxmlFile));
             AnchorPane pane = loader.load();
 
             // No necesitas llamar manualmente cargarCantidad porque se llama en initialize()

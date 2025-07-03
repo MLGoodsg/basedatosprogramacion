@@ -1,4 +1,4 @@
-package base_de_datos_escolar.clasesController;
+package base_de_datos_escolar.dashboard.clasesController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -392,7 +392,7 @@ public class SignupController implements Initializable {
     @FXML
     private void irAlLogin(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/archivos_fxml/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/login.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) usuarioField.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -404,7 +404,7 @@ public class SignupController implements Initializable {
     @FXML
     private void abrirRegistroInstitucion() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/archivos_fxml/registro_institucion.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/registro_institucion.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Registro de Institución Educativa");

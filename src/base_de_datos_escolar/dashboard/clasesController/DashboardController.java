@@ -1,4 +1,4 @@
-package base_de_datos_escolar.clasesController;
+package base_de_datos_escolar.dashboard.clasesController;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 
 import javafx.scene.control.*;
 
-import javafx.scene.control.Alert.AlertType;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
