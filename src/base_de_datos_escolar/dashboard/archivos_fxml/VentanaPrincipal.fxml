@@ -3,14 +3,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="246.0" prefWidth="229.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.VentanaPrincipalController">
+<VBox alignment="CENTER" prefHeight="331.0" prefWidth="489.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.VentanaPrincipalController">
 
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
+   <TextArea prefHeight="154.0" prefWidth="443.0" text="•Su pantalla de inicio debe ser la página de presentación, &#10;donde pondrá nombre de la Universidad, Facultad &#10;(incluya ambos logos en imagen) carrera, grupo, &#10;nombre y cédula de los integrantes, nombre del profesor y fecha de entrega." />
    <Label text="Menú Principal">
       <font>
          <Font name="Raleway Bold" size="18.0" />

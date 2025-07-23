@@ -25,10 +25,11 @@ public class LoginController {
         }
         // URL para conexion a base de datos
         return DriverManager.getConnection(
-                "jdbc:mysql://maglev.proxy.rlwy.net:24319/railway",
+                "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar",
                 "root",
-                "mfMmjJemvZXmztSmXQiraWQjUBDLmhPE"
+                "abvqWjezmsgvxfbtyvYJoQAzNSWHpEnw"
         );
+
     }
 
 
@@ -36,7 +37,7 @@ public class LoginController {
     private void iniciarSesion(ActionEvent event) {
         String usuario = txtUsuario.getText();
         String clave = txtContrasenia.getText();
-        String consultaUsuario = "SELECT * FROM usuarios WHERE user_nomuser = ? AND contrasenia = ?";
+        String consultaUsuario = "SELECT * FROM usuario WHERE nombre_usuario = ? AND contrasenia = ?";
 
 
         try (Connection conn = conectar(); PreparedStatement bd_iniciodesesion = conn.prepareStatement(consultaUsuario);) {
@@ -47,7 +48,12 @@ public class LoginController {
 
             //Verificador de conexion a la base de datos
             if (busqueda_usuario.next()) {
-                mostrarAlerta("Éxito", "Bienvenido " + busqueda_usuario.getString("nombre"), AlertType.INFORMATION);
+                // GUARDAR EN SESIÓN
+                SesionUsuario.nombre = busqueda_usuario.getString("nombre");
+                SesionUsuario.apellido = busqueda_usuario.getString("apellido");
+                SesionUsuario.foto = busqueda_usuario.getBytes("foto_usuario");
+
+                // CARGAR PANEL PRINCIPAL
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/NuevoPanel.fxml"));
                     Stage stage = new Stage();
@@ -55,11 +61,8 @@ public class LoginController {
                     stage.setTitle("Dashboard");
                     stage.setMaximized(true);
                     stage.show();
+
                     ((Stage) txtUsuario.getScene().getWindow()).close();
-
-                    // Opcional: cerrar la ventana de login actual
-                    // ((Node) event.getSource()).getScene().getWindow().hide();
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

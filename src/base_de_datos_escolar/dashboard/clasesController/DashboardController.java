@@ -62,9 +62,9 @@ public class DashboardController {
 
     private Connection conectar() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:mysql://maglev.proxy.rlwy.net:24319/railway",
+                "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar",
                 "root",
-                "mfMmjJemvZXmztSmXQiraWQjUBDLmhPE"
+                "abvqWjezmsgvxfbtyvYJoQAzNSWHpEnw"
         );
     }
 
@@ -72,10 +72,10 @@ public class DashboardController {
     private Map<String, Integer> obtenerCantidadRegistros(Connection conn) throws SQLException {
         Map<String, Integer> resultados = new HashMap<>();
 
-        String tablaInstituciones = "SELECT COUNT(*) AS total FROM institucion_educativa";
-        String tablaEstudiantes = "SELECT COUNT(*) AS total FROM estudiantes";
-        String tablaMaestros = "SELECT COUNT(*) AS total FROM empleados WHERE tipo_cargo = 'Docente'";
-        String tablaAcudientes = "SELECT COUNT(*) AS total FROM acudientes";
+        String tablaInstituciones = "SELECT COUNT(*) AS total FROM institucion";
+        String tablaEstudiantes = "SELECT COUNT(*) AS total FROM estudiante";
+        String tablaMaestros = "SELECT COUNT(*) AS total FROM empleado WHERE tipo_cargo = 'Docente'";
+        String tablaAcudientes = "SELECT COUNT(*) AS total FROM acudiente";
 
         PreparedStatement psInst = conn.prepareStatement(tablaInstituciones);
         PreparedStatement psEst = conn.prepareStatement(tablaEstudiantes);

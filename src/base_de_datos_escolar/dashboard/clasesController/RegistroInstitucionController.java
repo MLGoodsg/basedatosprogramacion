@@ -27,7 +27,7 @@ public class RegistroInstitucionController {
 
     @FXML
     public void initialize() {
-        comboNivelEducativo.setItems(FXCollections.observableArrayList("Primaria", "Secundaria", "Ambos"));
+        comboNivelEducativo.setItems(FXCollections.observableArrayList("Primaria", "Secundaria", "Primaria y Secundaria"));
 
         cargarProvincias();
 
@@ -53,9 +53,9 @@ public class RegistroInstitucionController {
 
     private Connection conectar() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:mysql://maglev.proxy.rlwy.net:24319/railway",
+                "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar",
                 "root",
-                "mfMmjJemvZXmztSmXQiraWQjUBDLmhPE"
+                "abvqWjezmsgvxfbtyvYJoQAzNSWHpEnw"
         );
     }
 
@@ -168,7 +168,7 @@ public class RegistroInstitucionController {
         int idDistrito = distritosMap.get(distrito);
         int idCorregimiento = corregimientosMap.get(corregimiento);
 
-        String insertarInstitucionSQL = "INSERT INTO institucion_educativa (nombre_institucion, anio_fundacion, capacidad_estudiantes, direccion, nivel_educativo, id_provincia, id_distrito, id_corregimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertarInstitucionSQL = "INSERT INTO institucion (nombre, anio_fundacion, capacidad_estudiantes, direccion, nivel_educativo, id_provincia, id_distrito, id_corregimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = conectar();
              PreparedStatement datosInstitucion = conn.prepareStatement(insertarInstitucionSQL)) {

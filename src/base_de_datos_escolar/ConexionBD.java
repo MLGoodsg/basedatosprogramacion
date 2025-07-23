@@ -7,10 +7,9 @@ import java.sql.SQLException;
 public class ConexionBD {
     public static void main(String[] args) {
         // URL corregida con "//" después de "mysql:"
-        String url = "jdbc:mysql://maglev.proxy.rlwy.net:24319/railway";
+        String url = "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar";
         String usuario = "root";
-        String clave = "mfMmjJemvZXmztSmXQiraWQjUBDLmhPE";
-
+        String clave = "abvqWjezmsgvxfbtyvYJoQAzNSWHpEnw";
         try {
             // Cargar explícitamente el driver (opcional, pero recomendado)
             Class.forName("com.mysql.cj.jdbc.Driver");
