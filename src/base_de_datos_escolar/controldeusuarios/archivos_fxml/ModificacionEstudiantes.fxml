@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="609.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController">
+   <children>
+      <Label layoutX="242.0" layoutY="14.0" text="Actualización de datos">
+         <font>
+            <Font name="Raleway Bold" size="24.0" />
+         </font>
+      </Label>
+
+      <!-- Campos comunes -->
+      <ComboBox fx:id="tipoUsuarioBox" layoutX="69.0" layoutY="112.0" prefHeight="25.0" prefWidth="223.0" promptText="Tipo de Usuario" />
+      <ComboBox fx:id="comboInstitucion" layoutX="69.0" layoutY="151.0" prefHeight="25.0" prefWidth="223.0" promptText="Seleccione institución" />
+
+      <TextField fx:id="nombreField" layoutX="69.0" layoutY="215.0" prefHeight="23.0" prefWidth="223.0" promptText="Nombre" />
+      <TextField fx:id="apellidoField" layoutX="69.0" layoutY="253.0" prefHeight="25.0" prefWidth="223.0" promptText="Apellido" />
+      <TextField fx:id="cedulaEmpleadoField" layoutX="69.0" layoutY="295.0" prefHeight="25.0" prefWidth="223.0" promptText="Cédula" />
+      <TextField fx:id="usuarioField" layoutX="68.0" layoutY="368.0" prefHeight="23.0" prefWidth="223.0" promptText="Usuario" />
+      <PasswordField fx:id="contraseniaField" layoutX="69.0" layoutY="408.0" prefHeight="25.0" prefWidth="223.0" promptText="Contraseña" />
+
+      <!-- Fecha de nacimiento -->
+      <DatePicker fx:id="campoFechaNacimiento" layoutX="440.0" layoutY="112.0" />
+
+      <!-- Dirección -->
+      <TextField fx:id="campoDireccion" layoutX="438.0" layoutY="213.0" prefHeight="23.0" prefWidth="223.0" promptText="Dirección" />
+
+      <!-- Sexo -->
+      <ComboBox fx:id="campoSexo" layoutX="439.0" layoutY="151.0" prefHeight="25.0" prefWidth="223.0" promptText="Sexo" />
+
+      <!-- Botón de Imagen -->
+      <Button fx:id="btnSubirImagen" layoutX="440.0" layoutY="292.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="153.0" text="Cambiar foto de perfil" />
+      <ImageView fx:id="imagenUsuario" fitHeight="104.0" fitWidth="104.0" layoutX="465.0" layoutY="341.0" preserveRatio="true">
+         <image>
+            <Image url="@../../dashboard/imagenes/iconoPerfil.png" />
+         </image></ImageView>
+
+      <!-- Botón de modificación -->
+      <Button layoutX="291.0" layoutY="491.0" mnemonicParsing="false" onAction="#modificarUsuario" prefHeight="40.0" prefWidth="137.0" text="Modificar Usuario" />
+      <Label layoutX="301.0" layoutY="49.0" text="Estudiantes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
