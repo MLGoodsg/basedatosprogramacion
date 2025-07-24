@@ -7,41 +7,37 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="base_de_datos_escolar.dashboard.clasesController.RegistroInstitucionController"
-      alignment="CENTER"
-      spacing="10.0">
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.RegistroInstitucionController">
 
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
 
-    <Label text="Registro de Institución Educativa" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Registro de Institución Educativa" textFill="#d440fa" />
 
-    <Label text="Nombre:"/>
-    <TextField fx:id="txtNombre"/>
+    <Label text="Nombre:" />
+    <TextField fx:id="txtNombre" />
 
-    <Label text="Año de Fundación:"/>
-    <TextField fx:id="txtAnioFundacion" promptText="Ejemplo: 1990"/>
+    <Label text="Año de Fundación:" />
+    <TextField fx:id="txtAnioFundacion" promptText="Ejemplo: 1990" />
 
-    <Label text="Capacidad de Estudiantes:"/>
-    <TextField fx:id="txtCapacidadEstudiantes" promptText="Ejemplo: 500"/>
+    <Label text="Capacidad de Estudiantes:" />
+    <TextField fx:id="txtCapacidadEstudiantes" promptText="Ejemplo: 500" />
 
-    <Label text="Dirección:"/>
-    <TextField fx:id="txtDireccion"/>
+    <Label text="Dirección:" />
+    <TextField fx:id="txtDireccion" />
 
-    <Label text="Nivel Educativo:"/>
-    <ComboBox fx:id="comboNivelEducativo" promptText="Seleccione nivel educativo"/>
+    <Label text="Nivel Educativo:" />
+    <ComboBox fx:id="comboNivelEducativo" promptText="Seleccione nivel educativo" />
 
-    <Label text="Provincia:"/>
-    <ComboBox fx:id="comboProvincia" promptText="Seleccione provincia"/>
+    <Label text="Provincia:" />
+    <ComboBox fx:id="comboProvincia" promptText="Seleccione provincia" />
 
-    <Label text="Distrito:"/>
-    <ComboBox fx:id="comboDistrito" promptText="Seleccione distrito" disable="true"/>
+    <Label text="Distrito:" />
+    <ComboBox fx:id="comboDistrito" disable="true" promptText="Seleccione distrito" />
 
-    <Label text="Corregimiento:"/>
-    <ComboBox fx:id="comboCorregimiento" promptText="Seleccione corregimiento" disable="true"/>
+    <Label text="Corregimiento:" />
+    <ComboBox fx:id="comboCorregimiento" disable="true" promptText="Seleccione corregimiento" />
 
-    <Button text="Guardar" onAction="#guardarInstitucion"/>
+    <Button onAction="#guardarInstitucion" text="Guardar" />
 </VBox>
