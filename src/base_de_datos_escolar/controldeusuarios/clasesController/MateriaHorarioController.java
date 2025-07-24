@@ -29,6 +29,9 @@ public class MateriaHorarioController implements Initializable {
     private ComboBox<String> cbDia;
     @FXML
     private ComboBox<String> cbHora;
+    @FXML
+    private ComboBox<String> cbBachillerato;
+
 
     @FXML
     private TableView<MateriaHorario> tablaHorarios;
@@ -51,8 +54,6 @@ public class MateriaHorarioController implements Initializable {
 
     private ObservableList<MateriaHorario> listaHorarios = FXCollections.observableArrayList();
 
-    private Connection conexion;
-
     private Connection conectar() throws SQLException {
         return DriverManager.getConnection(
                 "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar",
@@ -67,7 +68,8 @@ public class MateriaHorarioController implements Initializable {
         cargarInstituciones();
         cargarDiasHorasGrado();
         configurarListeners();
-        cargarHorarios(); // Mostrar datos al inicio
+        cargarHorarios();
+        cargarBachillerato(null);
     }
 
     private void configurarTabla() {
@@ -109,54 +111,109 @@ public class MateriaHorarioController implements Initializable {
     private void cargarDocentes(String institucionSeleccionada) {
         cbDocente.getItems().clear();
         try (Connection conn = conectar()) {
-            // 1. Buscar ID de la institución
             int idInstitucion = obtenerIdInstitucion(institucionSeleccionada);
-
-            // 2. Traer docentes por ID
             String sql = "SELECT CONCAT(nombre, ' ', apellido) AS docente " +
                     "FROM empleado WHERE id_institucion = ? AND tipo_cargo = 'Docente'";
-
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, idInstitucion);
-
             ResultSet rs = stmt.executeQuery();
 
-            boolean found = false;
             while (rs.next()) {
                 cbDocente.getItems().add(rs.getString("docente"));
-                found = true;
-            }
-
-            if (!found) {
-                mostrarAlerta("Información", "No hay docentes para esta institución", Alert.AlertType.INFORMATION);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
             mostrarAlerta("Error", "Error al cargar docentes: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void cargarCursos() {
-        cbCurso.getItems().clear();
-        cbCurso.getItems().addAll("1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°", "11°", "12°");
+        String institucionSeleccionada = cbInstitucion.getValue();
+        if (institucionSeleccionada == null) return;
+
+        try (Connection conn = conectar();
+             PreparedStatement stmt = conn.prepareStatement("SELECT nivel_educativo FROM institucion WHERE nombre = ?")) {
+
+            stmt.setString(1, institucionSeleccionada);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String nivelEducativo = rs.getString("nivel_educativo");
+                cbCurso.getItems().clear();
+
+                if (nivelEducativo.equals("Primaria")) {
+                    cbCurso.getItems().addAll("1°", "2°", "3°", "4°", "5°", "6°");
+                    cbBachillerato.setDisable(true);
+
+                } else if (nivelEducativo.equals("Secundaria")) {
+                    cbCurso.getItems().addAll("7°", "8°", "9°", "10°", "11°", "12°");
+                    cbBachillerato.setDisable(false);
+
+                } else {
+                    cbCurso.getItems().addAll("1°", "2°", "3°", "4°", "5°", "6°",
+                            "7°", "8°", "9°", "10°", "11°", "12°");
+                    cbBachillerato.setDisable(false);
+
+                }
+            }
+
+        } catch (SQLException e) {
+            mostrarAlerta("Error", "Error al cargar cursos", Alert.AlertType.ERROR);
+        }
+    }
+
+
+    private void cargarBachillerato(String curso) {
+        cbBachillerato.getItems().clear();
+        if ((curso == null) || ((cbCurso.getValue().equals("7°")) || (cbCurso.getValue().equals("8°")) || (cbCurso.getValue().equals("9°")))) {
+            cbBachillerato.setDisable(true);
+        } else {
+            cbBachillerato.setDisable(false);
+            try (Connection conn = conectar();
+                 PreparedStatement stmt = conn.prepareStatement(
+                         "SELECT DISTINCT especialidad FROM materia_meduca WHERE curso = ? AND especialidad IS NOT NULL")) {
+
+                stmt.setString(1, curso);
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {
+                    cbBachillerato.getItems().add(rs.getString("especialidad"));
+                }
+
+                if (cbBachillerato.getItems().isEmpty()) {
+                    cbBachillerato.getItems().add("General");
+                }
+
+            } catch (SQLException e) {
+                mostrarAlerta("Error", "Error al cargar bachilleratos", Alert.AlertType.ERROR);
+            }
+        }
     }
 
     private void cargarMaterias(String curso) {
         cbMateria.getItems().clear();
         try (Connection conn = conectar();
-             PreparedStatement stmt = conn.prepareStatement("SELECT nombre FROM materia_meduca WHERE curso=?")) {
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT nombre FROM materia_meduca " +
+                             "WHERE curso = ? AND (especialidad IS NULL OR especialidad = ?) ORDER BY nombre ASC")) {
+
             stmt.setString(1, curso);
+            stmt.setString(2, cbBachillerato.getValue() != null ? cbBachillerato.getValue() : "");
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) cbMateria.getItems().add(rs.getString("nombre"));
+
+            while (rs.next()) {
+                cbMateria.getItems().add(rs.getString("nombre"));
+            }
+
         } catch (SQLException e) {
-            mostrarAlerta("Error", "Error al cargar materias", Alert.AlertType.ERROR);
+            mostrarAlerta("Error", "Error al cargar materias: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void cargarDiasHorasGrado() {
         cbDia.getItems().addAll("lunes", "martes", "miércoles", "jueves", "viernes");
-        cbHora.getItems().addAll("7:00-7:45", "7:45-8:30", "8:30-9:15", "9:15-10:00", "10:00-10:30", "10:30-11:15", "11:15-12:00", "12:00-12:45", "12:45-1:30", "1:30-2:15", "2:15-3:00");
+        cbHora.getItems().addAll("7:00-7:45", "7:45-8:30", "8:30-9:15", "9:15-10:00", "10:00-10:30",
+                "10:30-11:15", "11:15-12:00", "12:00-12:45", "12:45-1:30", "1:30-2:15", "2:15-3:00");
         cbGrado.getItems().addAll("A", "B", "C");
     }
 
@@ -168,8 +225,19 @@ public class MateriaHorarioController implements Initializable {
                 cargarCursos();
             }
         });
+
         cbCurso.setOnAction(e -> {
-            if (cbCurso.getValue() != null) cargarMaterias(cbCurso.getValue());
+            if (cbCurso.getValue() != null) {
+                cargarBachillerato(cbCurso.getValue());
+                cargarMaterias(cbCurso.getValue());
+
+            }
+        });
+
+        cbBachillerato.setOnAction(e -> {
+            if (cbCurso.getValue() != null) {
+                cargarMaterias(cbCurso.getValue());
+            }
         });
     }
 
@@ -181,14 +249,13 @@ public class MateriaHorarioController implements Initializable {
         }
 
         try (Connection conn = conectar()) {
-            String sql = "INSERT INTO materia_horario (id_institucion,id_docente,id_materia_meduca,id_periodo,curso,grado,dia,hora,codigo_materia) VALUES (?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO materia_horario (id_institucion,id_docente,id_materia_meduca,id_periodo,curso,grado,dia,hora) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             int idInstitucion = obtenerIdInstitucion(cbInstitucion.getValue());
             int idDocente = obtenerIdDocente(cbDocente.getValue());
             int idMateria = obtenerIdMateria(cbMateria.getValue());
             int idPeriodo = obtenerIdPeriodo(cbPeriodo.getValue(), idInstitucion);
-            String codigoMateria = cbInstitucion.getValue() + cbDocente.getValue() + cbMateria.getValue() + cbCurso.getValue() + cbGrado.getValue() + cbDia.getValue() + cbHora.getValue();
 
             stmt.setInt(1, idInstitucion);
             stmt.setInt(2, idDocente);
@@ -198,14 +265,14 @@ public class MateriaHorarioController implements Initializable {
             stmt.setString(6, cbGrado.getValue());
             stmt.setString(7, cbDia.getValue());
             stmt.setString(8, cbHora.getValue());
-            stmt.setString(9, codigoMateria);
+
 
             stmt.executeUpdate();
             mostrarMensaje("Horario agregado correctamente");
             cargarHorarios();
             limpiarCampos();
         } catch (SQLException e) {
-            mostrarAlerta("Error", "No se pudo agregar el horario", Alert.AlertType.ERROR);
+            mostrarAlerta("Error", "No se pudo agregar el horario" + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -281,6 +348,8 @@ public class MateriaHorarioController implements Initializable {
         cbGrado.setValue(null);
         cbDia.setValue(null);
         cbHora.setValue(null);
+        cbBachillerato.setValue(null);
+
     }
 
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
