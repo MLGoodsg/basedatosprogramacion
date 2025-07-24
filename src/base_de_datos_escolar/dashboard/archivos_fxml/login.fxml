@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="281.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
+<AnchorPane prefHeight="281.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
     <children>
         <Label layoutX="91.0" layoutY="26.0" text="Iniciar Sesión">
          <font>
@@ -21,7 +21,7 @@
             <Font name="Raleway Regular" size="14.0" />
          </font></Button>
         <Hyperlink layoutX="85.0" layoutY="218.0" onAction="#irARegistro" text="¿No tienes cuenta? Regístrate" />
-      <Label layoutX="42.0" layoutY="77.0" text="Nombre de usuario" />
+      <Label layoutX="42.0" layoutY="77.0" text="Nombre de usuario" textFill="#fd00ca" />
       <Label layoutX="42.0" layoutY="123.0" prefHeight="17.0" prefWidth="103.0" text="Contraseña" />
     </children>
 </AnchorPane>
