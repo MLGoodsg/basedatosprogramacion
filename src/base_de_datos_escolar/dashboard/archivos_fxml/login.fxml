@@ -5,9 +5,10 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="281.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
     <children>
-        <Label layoutX="91.0" layoutY="26.0" text="Iniciar Sesión">
+        <Label layoutX="91.0" layoutY="26.0" prefHeight="60.0" prefWidth="186.0" text="Iniciar Sesión"
+               textFill="#93f24f">
          <font>
-            <Font name="Raleway Bold" size="24.0" />
+             <Font size="48.0"/>
          </font></Label>
         <TextField fx:id="txtUsuario" layoutX="155.0" layoutY="73.0" promptText="Usuario" />
         <PasswordField fx:id="txtContrasenia" layoutX="154.0" layoutY="119.0" promptText="Contraseña" />
