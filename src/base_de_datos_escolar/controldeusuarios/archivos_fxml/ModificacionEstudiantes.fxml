@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="609.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController">
+<AnchorPane prefHeight="609.0" prefWidth="719.0" stylesheets="@../../dashboard/registros.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController">
    <children>
-      <Label layoutX="52.0" layoutY="34.0" text="Actualización de datos">
+      <Label layoutX="52.0" layoutY="34.0" text="Actualización de datos" textFill="#b9d440">
          <font>
             <Font name="Raleway Bold" size="24.0" />
          </font>
@@ -47,7 +47,7 @@
 
       <!-- Botón de modificación -->
       <Button layoutX="291.0" layoutY="491.0" mnemonicParsing="false" onAction="#modificarUsuario" prefHeight="40.0" prefWidth="137.0" text="Modificar Usuario" />
-      <Label layoutX="52.0" layoutY="69.0" text="Estudiantes">
+      <Label layoutX="52.0" layoutY="69.0" text="Estudiantes" textFill="#b9d440">
          <font>
             <Font size="24.0" />
          </font>
