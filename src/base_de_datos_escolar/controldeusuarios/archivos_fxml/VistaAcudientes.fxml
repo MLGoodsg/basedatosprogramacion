@@ -13,7 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1377.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
+
+<AnchorPane prefHeight="562.0" prefWidth="1376.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
+
     <children>
         <!-- Título -->
         <Label layoutX="31.0" layoutY="22.0" text="Acudientes" textFill="#c0e30b">

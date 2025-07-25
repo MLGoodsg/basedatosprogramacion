@@ -1,0 +1,121 @@
+/* Paleta de colores mapeada a propiedades -fx- */
+/* Nota: Las variables CSS de :root no son soportadas directamente como en CSS web.
+   Aplicamos los colores directamente a los elementos o clases. */
+
+/* Definición de colores (para referencia, no variables CSS de JavaFX) */
+/* --dark-blue: #7360F9; */
+/* --medium-purple: #BC9BF3; */
+/* --lightest-peach: #FFF1EB; */
+/* --white-text: #FFFFFF; */
+
+/* Nuevo verde más claro (aclarando #B9D440) - Manteniendo el mismo tono aclarado del request anterior */
+.light-green-clarified {
+    -fx-background-color: #D5EC7F;
+}
+
+/* Color del texto para los campos (Morado) - Manteniendo el mismo del request anterior */
+.text-in-fields-color {
+    -fx-text-fill: #BC9BF3;
+}
+
+
+/* Estilos para el contenedor principal (ej. VBox) */
+.root {
+    -fx-background-color: #FFF1EB; /* Fondo general más claro */
+    -fx-padding: 30px; /* Un poco de padding alrededor del formulario */
+    -fx-spacing: 15px; /* Espacio entre los elementos */
+    /* Fuente de sistema para el cuerpo del texto */
+    -fx-font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Estilos para el título principal "Registro de Institución Educativa" */
+.header-label {
+    -fx-text-fill: #BC9BF3; /* ¡COLOR MORADO APLICADO AQUÍ! (Morado medio) */
+    -fx-font-size: 40px; /* ¡TAMAÑO DE FUENTE 40PX APLICADO AQUÍ! */
+    -fx-font-weight: bold; /* Negrita */
+    -fx-alignment: center; /* Centrar el texto */
+    -fx-padding: 0 0 10px 0; /* Espacio inferior para separar del primer campo */
+}
+
+/* Estilos para las etiquetas de los campos (Nombre, Año de Fundación, etc.) */
+.form-label {
+    -fx-text-fill: #BC9BF3; /* Morado medio */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold; /* Negrita, como en la imagen */
+    -fx-padding: 10px 0 5px 0; /* Espacio arriba y abajo para separar de campos */
+}
+
+/* Estilos para los campos de entrada de texto (TextField) */
+.text-field {
+    -fx-background-color: #D5EC7F; /* Verde aclarado */
+    -fx-text-fill: #BC9BF3; /* Texto morado */
+    -fx-font-size: 14px;
+    -fx-border-color: #D5EC7F; /* Borde del mismo color que el fondo para un aspecto 'plano' */
+    -fx-border-width: 1px;
+    /* Borde ovalado */
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px 10px;
+}
+
+/* Estilo para el texto del prompt (placeholder) en TextField */
+.text-field .text {
+    -fx-fill: rgba(188, 155, 243, 0.7); /* Morado medio con 70% de opacidad */
+}
+
+/* Estilos cuando un TextField está enfocado (opcional, para realzar) */
+.text-field:focused {
+    -fx-border-color: #7360F9; /* Borde azul/morado oscuro al enfocar */
+    -fx-border-width: 2px;
+}
+
+/* Estilos para ComboBox (desplegables) */
+.combo-box {
+    -fx-background-color: #D5EC7F; /* Verde aclarado */
+    -fx-font-size: 14px;
+    -fx-border-color: #D5EC7F; /* Borde del mismo color que el fondo */
+    -fx-border-width: 1px;
+    /* Borde ovalado para ComboBox también */
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+/* Estilo para la celda seleccionada dentro del ComboBox */
+.combo-box .list-cell {
+    -fx-background-color: #D5EC7F; /* Fondo de los ítems en la lista (VERDE ACLARADO) */
+    -fx-text-fill: #BC9BF3; /* Texto morado */
+    -fx-padding: 8px 10px;
+}
+
+/* Estilo para la flecha del ComboBox */
+.combo-box .arrow-button {
+    -fx-background-color: transparent; /* Fondo transparente para la flecha */
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #BC9BF3; /* Morado medio para la flecha */
+}
+
+/* Estilos cuando un ComboBox está enfocado */
+.combo-box:focused {
+    -fx-border-color: #7360F9; /* Borde azul/morado oscuro al enfocar */
+    -fx-border-width: 2px;
+}
+
+/* Estilos para el botón "Guardar" */
+.save-button {
+    -fx-background-color: #BC9BF3; /* Morado medio */
+    -fx-text-fill: #FFFFFF; /* Texto blanco */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px; /* Mantendremos este botón con esquinas ligeramente redondeadas, no ovaladas */
+    -fx-padding: 10px 25px; /* Más padding para un botón más grande */
+    -fx-cursor: hand; /* Cambia el cursor a una mano */
+    -fx-alignment: center; /* Centra el texto del botón */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2); /* Sombra sutil, opcional */
+}
+
+/* Efecto hover para el botón (cuando el ratón pasa por encima) */
+.save-button:hover {
+    -fx-background-color: #A37BD2; /* Un tono un poco más oscuro del morado medio */
+}

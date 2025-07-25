@@ -7,16 +7,20 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.EmpleadoController">
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../dashboard/registros.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.EmpleadoController">
     <children>
         <!-- Título -->
-        <Label layoutX="24.0" layoutY="29.0" text="Empleados" textFill="#96dd12">
+        <Label layoutX="24.0" layoutY="29.0" text="Empleados" textFill="#7360f9">
+
             <font>
                 <Font name="Raleway Bold" size="36.0" />
             </font>
@@ -26,21 +30,26 @@
             <!-- Barra de herramientas -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <children>
+
                     <Label prefHeight="20.0" prefWidth="157.0" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Filtrar por Institución:">
+
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Label>
                     <ComboBox fx:id="comboInstituciones" prefWidth="200.0" styleClass="contadorEscuela" stylesheets="@../../dashboard/panel%20de%20colores.css" />
                     <Region prefHeight="25.0" prefWidth="36.0" />
-                    <Label prefHeight="20.0" prefWidth="133.0" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Filtrar por Cargo:">
+
+
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Label>
                     <ComboBox fx:id="comboTipoCargo" prefWidth="200.0" styleClass="contadorEscuela" stylesheets="@../../dashboard/panel%20de%20colores.css" />
                     <Region prefHeight="25.0" prefWidth="36.0" />
+
                     <Label prefHeight="20.0" prefWidth="74.0" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Buscar:">
+
                         <font>
                             <Font size="14.0" />
                         </font>
@@ -71,10 +80,18 @@
 
                     <!-- Label oculto para ID de usuario -->
         <Label fx:id="lblIdUsuario" visible="false" />
+
+      <ImageView fitHeight="98.0" fitWidth="200.0" layoutX="841.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/Blue%20and%20White%20Cosmetics%20Brand%20Logo.png" />
+         </image>
+      </ImageView>
+
            <Button layoutX="24.0" layoutY="396.0" onAction="#actualizarDatos" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Actualizar" />
            <Button fx:id="btnAgregar" layoutX="108.0" layoutY="396.0" onAction="#agregarEmpleado" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Agregar" />
            <Button fx:id="btnEditar" layoutX="184.0" layoutY="396.0" onAction="#editarEmpleado" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Editar" />
            <Button fx:id="btnEliminar" layoutX="244.0" layoutY="396.0" onAction="#eliminarEmpleado" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Eliminar" />
+
     </children>
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
