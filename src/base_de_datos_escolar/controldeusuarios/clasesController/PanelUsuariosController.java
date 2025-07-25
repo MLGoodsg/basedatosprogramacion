@@ -1,19 +1,20 @@
 package base_de_datos_escolar.controldeusuarios.clasesController;
 
+import base_de_datos_escolar.dashboard.clasesController.SesionUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import base_de_datos_escolar.dashboard.clasesController.SesionUsuario;
 
-import javafx.scene.image.Image;
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.IOException;
-import java.sql.*;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class PanelUsuariosController {
     @FXML private Button dashboard_button;
@@ -70,6 +71,12 @@ public class PanelUsuariosController {
     private void acudientesClick() {
 
         loadUI("VistaAcudientes.fxml");
+    }
+
+    @FXML
+    private void MateriaHorarioClick() {
+
+        loadUI("VistaMateria.fxml");
     }
 
 

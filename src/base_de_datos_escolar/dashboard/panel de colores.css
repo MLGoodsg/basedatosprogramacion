@@ -1,0 +1,178 @@
+.side_anchorpane {
+    -fx-background-color: #7360F9;
+    -fx-border-color: #FFF1EB;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+
+.vbox_pane {
+    -fx-background-color: #BC9BF3;
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+
+.seleccionador_pane {
+    -fx-background-color: #BC9BF3;
+    -fx-border-color: #BC9BF3;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+}
+
+.dashboard_button {
+    -fx-background-color: #7360F9;
+    -fx-border-color: #7360F9;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+    -fx-text-fill: #000000;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Raleway";
+    -fx-effect: null;
+    -fx-padding: 5 5 5 10;
+    -fx-translate-x: 0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.dashboard_button_active {
+    -fx-background-color: #FFF1EB;
+    -fx-border-color: #FFF1EB;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-style: solid;
+    -fx-text-fill: #7360F9;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Raleway";
+}
+
+.contadorEstudiantes {
+    -fx-background-color: #FFF1EB;
+    -fx-border-color: #B9D440;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+
+.contadorEstudianteLine {
+    -fx-background-color: #B9D440;
+    -fx-border-color: #B9D440;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20 0 0 20;
+    -fx-background-radius: 20 0 0 20;
+}
+
+.contadorMaestroLine {
+    -fx-background-color: #7360F9;
+    -fx-border-color: #7360F9;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15 0 0 15;
+    -fx-background-radius: 15 0 0 15;
+}
+
+.contadorMaestros {
+    -fx-background-color: #FFF1EB;
+    -fx-border-color: #7360F9;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+
+.contadorEscuelaLine {
+    -fx-background-color: #BC9BF3;
+    -fx-border-color: #BC9BF3;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15 0 0 15;
+    -fx-background-radius: 15 0 0 15;
+}
+
+.contadorEscuela {
+    -fx-background-color: #FFF1EB;
+    -fx-border-color: #BC9BF3;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+
+.contadorPadresLine {
+    -fx-background-color: #B9D440;
+    -fx-border-color: #B9D440;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15 0 0 15;
+    -fx-background-radius: 15 0 0 15;
+}
+
+.contadorPadres {
+    -fx-background-color: #FFF1EB;
+    -fx-border-color: #B9D440;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 0 15 15 0;
+    -fx-background-radius: 0 15 15 0;
+}
+
+.combo-box {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 2;
+    -fx-border-color: #7360F9;
+    -fx-background-color: #FFF1EB;
+}
+
+.combo-box .list-cell {
+    -fx-background-radius: 10;
+}
+
+.combo-box .arrow-button {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.combo-box .text-field {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.fondoPane {
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-border-color: #7360F9;
+    -fx-background-color: #FFF1EB;
+}
+
+.graficaPane {
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-border-color: #7360F9;
+    -fx-background-color: #FFF1EB;
+}
+
+.primerosPuestos {
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-border-color: #7360F9;
+    -fx-background-color: #BC9BF3;
+}
+
+.circular-image {
+    -fx-background-radius: 100em;
+    -fx-border-radius: 100em;
+    -fx-border-color: #7360F9;
+    -fx-border-width: 3px;
+    -fx-padding: 0;
+}

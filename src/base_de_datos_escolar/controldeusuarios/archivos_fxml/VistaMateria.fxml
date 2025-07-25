@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="1053.0"
+            xmlns="http://javafx.com/javafx/24.0.1"
+            fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.MateriaHorarioController">
+
+    <HBox layoutX="-9.0" layoutY="25.0" prefHeight="325.0" prefWidth="1225.0" spacing="10">
+        <VBox prefHeight="325.0" prefWidth="1231.0" spacing="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <GridPane hgap="10" prefHeight="285.0" prefWidth="1079.0" vgap="10">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10"/>
+                </padding>
+
+                <Label text="Institución:" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="cbInstitucion" prefHeight="25.0" prefWidth="141.0" GridPane.rowIndex="2"/>
+
+                <Label text="Periodo:" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cbPeriodo" prefWidth="200" GridPane.rowIndex="4"/>
+
+                <Label text="Docente:" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cbDocente" prefWidth="200" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+
+                <Label text="Curso:" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="cbCurso" prefWidth="200" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+                <Label text="Materia:" GridPane.columnIndex="4"/>
+                <ComboBox fx:id="cbMateria" prefWidth="200" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+                <Label text="Grado:" GridPane.columnIndex="6"/>
+                <ComboBox fx:id="cbGrado" prefWidth="200" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
+
+                <Label text="Día:" GridPane.columnIndex="6" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cbDia" prefWidth="200" GridPane.columnIndex="6" GridPane.rowIndex="4"/>
+
+                <Label text="Hora:" GridPane.columnIndex="8" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cbHora" prefWidth="200" GridPane.columnIndex="8" GridPane.rowIndex="4"/>
+                <Label text="Bachillerato" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cbBachillerato" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="2"
+                          GridPane.rowIndex="4"/>
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+    <Label layoutX="20.0" layoutY="10.0" text="Gestión de Horarios">
+        <font>
+            <Font size="24"/>
+        </font>
+    </Label>
+
+    <TableView fx:id="tablaHorarios" layoutX="20.0" layoutY="206.0" prefHeight="362.0" prefWidth="815.0">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="50" text="ID"/>
+            <TableColumn fx:id="colInstitucion" prefWidth="150" text="Institución"/>
+            <TableColumn fx:id="colDocente" prefWidth="150" text="Docente"/>
+            <TableColumn fx:id="colMateria" prefWidth="156.00006103515625" text="Materia"/>
+            <TableColumn fx:id="colCurso" prefWidth="60.66668701171875" text="Curso"/>
+            <TableColumn fx:id="colGrado" prefWidth="61.99993896484375" text="Grado"/>
+            <TableColumn fx:id="colDia" prefWidth="84.0" text="Día"/>
+            <TableColumn fx:id="colHora" prefWidth="94.666748046875" text="Hora"/>
+        </columns>
+    </TableView>
+    <Button fx:id="btnEliminar" layoutX="905.0" layoutY="89.0" mnemonicParsing="false"
+            onAction="#eliminarMateriaHorario" text="Eliminar"/>
+    <Button fx:id="btnLimpiar" layoutX="976.0" layoutY="89.0" mnemonicParsing="false" onAction="#limpiarCampos"
+            text="Limpiar"/>
+    <Button fx:id="btbAgregar" layoutX="829.0" layoutY="89.0" mnemonicParsing="false" onAction="#agregarHorario"
+            text="Agregar"/>
+</AnchorPane>
