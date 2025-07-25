@@ -22,21 +22,33 @@
     -fx-border-style: solid;
 }
 .dashboard_button{
-    -fx-background-color: #05a7e2;
-    -fx-border-color: #05a7e2;
+    -fx-background-color: #71c6e6;
+    -fx-border-color: #71c6e6;
     -fx-border-width: 2px 2px 2px 2px;
     -fx-border-radius: 50 0 0 50;
     -fx-background-radius: 50 0 0 50;
     -fx-border-style: solid;
-    -fx-text-fill: #FFFFFF;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-font-family: "Raleway";
     -fx-effect: null;
-    fx-padding: 5 5 5 10; /* ajusta si es necesario */
+    fx-padding: 5 5 5 10;
     -fx-translate-x: 0;
     -fx-alignment: CENTER_LEFT;
 }
+
+
+.dashboard_buttonCambio {
+    -fx-background-color: #05a7e2;
+    -fx-border-color: #05a7e2;
+    -fx-border-style: solid;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Raleway";
+
+}
+
+
 .dashboard_button_active{
     -fx-background-color: #f4f4f4;
     -fx-border-color: #f4f4f4;

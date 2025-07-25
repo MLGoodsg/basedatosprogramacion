@@ -1,7 +1,5 @@
 package base_de_datos_escolar.dashboard.clasesController;
 
-import base_de_datos_escolar.controldeusuarios.clasesController.EstudianteController;
-import base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,22 +7,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.util.StringConverter;
-import java.time.format.DateTimeFormatter;
-import java.io.File;
-import java.io.FileInputStream;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.io.IOException;
-
 
 public class SignupController implements Initializable {
 
@@ -69,14 +67,14 @@ public class SignupController implements Initializable {
 
     private final Map<String, Integer> institucionesMap = new HashMap<>();
 
-    @Override
+
     public void initialize(URL location, ResourceBundle resources) {
         tipoUsuarioBox.getItems().addAll("Administrador", "Docente", "Director", "Trabajador social", "Estudiante", "Acudiente");
 
         if(SesionUsuario.getVentanaActual().equals("Acudiente")){
-                tipoUsuarioBox.setValue("Acudiente");
-                tipoUsuarioBox.setDisable(true);
-            }
+            tipoUsuarioBox.setValue("Acudiente");
+            tipoUsuarioBox.setDisable(true);
+        }
 
         if(SesionUsuario.getVentanaActual().equals("Estudiante")){
             tipoUsuarioBox.setValue("Estudiante");
@@ -88,44 +86,40 @@ public class SignupController implements Initializable {
             tipoUsuarioBox.setDisable(false);
         }
 
-            campoSexo.getItems().addAll("M", "F");
-            sexoEmpleadoBox.getItems().addAll("M", "F");
-            sexoAcudienteBox.getItems().addAll("M", "F");
-            parentescoAcudiente.getItems().addAll("Padre", "Madre", "Tutor", "Acudiente");
-            estadoCivilAcudiente.getItems().addAll("Soltero", "Casado", "Viudo", "Unido");
+        campoSexo.getItems().addAll("M", "F");
+        sexoEmpleadoBox.getItems().addAll("M", "F");
+        sexoAcudienteBox.getItems().addAll("M", "F");
+        parentescoAcudiente.getItems().addAll("Padre", "Madre", "Tutor", "Acudiente");
+        estadoCivilAcudiente.getItems().addAll("Soltero", "Casado", "Viudo", "Unido");
 
+        cargarInstituciones();
+        actualizarCamposSegunTipo();
+        tipoUsuarioBox.setOnAction(e -> actualizarCamposSegunTipo());
 
-            cargarInstituciones();
-            actualizarCamposSegunTipo();
-            tipoUsuarioBox.setOnAction(e -> actualizarCamposSegunTipo());
+        cedulaEstudianteAcudidoField.textProperty().addListener((obs, oldVal, newVal) -> buscarNombreEstudiante(newVal));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-            cedulaEstudianteAcudidoField.textProperty().addListener((obs, oldVal, newVal) -> buscarNombreEstudiante(newVal));
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        campoFechaNacimiento.setConverter(new StringConverter<LocalDate>() {
 
-            campoFechaNacimiento.setConverter(new StringConverter<LocalDate>() {
-                @Override
-                public String toString(LocalDate date) {
-                    return date != null ? formatter.format(date) : "";
-                }
+            public String toString(LocalDate date) {
+                return date != null ? formatter.format(date) : "";
+            }
 
-                @Override
-                public LocalDate fromString(String string) {
-                    return (string != null && !string.isEmpty()) ? LocalDate.parse(string, formatter) : null;
-                }
-            });
+            public LocalDate fromString(String string) {
+                return (string != null && !string.isEmpty()) ? LocalDate.parse(string, formatter) : null;
+            }
+        });
 
-            fechaNacimientoEmpleado.setConverter(new StringConverter<LocalDate>() {
-                @Override
-                public String toString(LocalDate date) {
-                    return date != null ? formatter.format(date) : "";
-                }
+        fechaNacimientoEmpleado.setConverter(new StringConverter<LocalDate>() {
 
-                @Override
-                public LocalDate fromString(String string) {
-                    return (string != null && !string.isEmpty()) ? LocalDate.parse(string, formatter) : null;
-                }
-            });
+            public String toString(LocalDate date) {
+                return date != null ? formatter.format(date) : "";
+            }
 
+            public LocalDate fromString(String string) {
+                return (string != null && !string.isEmpty()) ? LocalDate.parse(string, formatter) : null;
+            }
+        });
     }
 
     @FXML
@@ -142,6 +136,7 @@ public class SignupController implements Initializable {
             imagenUsuario.setImage(imagen);
         }
     }
+
     private void buscarNombreEstudiante(String cedula) {
         if (cedula == null || cedula.isEmpty()) {
             nombreEstudianteLabel.setText("");
@@ -151,14 +146,11 @@ public class SignupController implements Initializable {
         try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(consultaEstudiante)) {
             stmt.setString(1, cedula);
             ResultSet busquedaEstudiante = stmt.executeQuery();
-
             if (busquedaEstudiante.next()) {
                 nombreEstudianteLabel.setText(busquedaEstudiante.getString("nombre") + " " + busquedaEstudiante.getString("apellido"));
                 idEstudianteAcudiente = busquedaEstudiante.getInt("id_estudiante");
                 idInstitucionB = busquedaEstudiante.getInt("id_institucion");
                 lblid_institucion.setText(String.valueOf(idInstitucionB));
-
-
             } else {
                 nombreEstudianteLabel.setText("Estudiante no encontrado");
             }
@@ -166,8 +158,6 @@ public class SignupController implements Initializable {
             nombreEstudianteLabel.setText("Error de conexión");
         }
     }
-
-
 
     private void actualizarCamposSegunTipo() {
         String tipo = tipoUsuarioBox.getValue();
@@ -190,7 +180,6 @@ public class SignupController implements Initializable {
         salarioAcudiente.setVisible(esAcudiente);
         direccionAcudiente.setVisible(esAcudiente);
         sexoAcudienteBox.setVisible(esAcudiente);
-       
         cedulaEstudianteAcudidoField.setVisible(esAcudiente);
         nombreEstudianteLabel.setVisible(esAcudiente);
     }
@@ -226,13 +215,31 @@ public class SignupController implements Initializable {
         String contrasenia = contraseniaField.getText();
         String tipoUsuario = tipoUsuarioBox.getValue();
         String cedula = cedulaEmpleadoField.getText();
-        String cedulaEstudiante=cedulaEstudianteAcudidoField.getText();
+        String cedulaEstudiante = cedulaEstudianteAcudidoField.getText();
         String institucionSeleccionada = comboInstitucion.getValue();
         Integer idInstitucion = institucionesMap.get(institucionSeleccionada);
 
 
-        if (nombre.isEmpty() || apellido.isEmpty() || contrasenia.isEmpty() || tipoUsuario == null || (cedula.isEmpty() && cedulaEstudiante.isEmpty()) || (institucionSeleccionada == null && lblid_institucion.getText()=="")) {
+        if (nombre.isEmpty() || apellido.isEmpty() || contrasenia.isEmpty() || tipoUsuario == null || (cedula.isEmpty() && cedulaEstudiante.isEmpty()) || (institucionSeleccionada == null && lblid_institucion.getText().isEmpty())) {
             mostrarAlerta("Campos incompletos", "Por favor, completa todos los campos obligatorios.", Alert.AlertType.WARNING);
+            return;
+        }
+
+        //Validaciones
+        if (!nombre.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$") || !apellido.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$")) {
+            mostrarAlerta("Error", "El nombre y apellido solo pueden contener letras.", Alert.AlertType.WARNING);
+            return;
+        }
+
+        // Cedula
+        if (!cedula.matches("^[A-Z0-9-]{1,12}$")) {
+            mostrarAlerta("Error", "La cédula solo puede contener letras mayúsculas, números y guiones (máximo 12 caracteres).", Alert.AlertType.WARNING);
+            return;
+        }
+
+        // Contraseña
+        if (!contrasenia.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
+            mostrarAlerta("Error", "La contraseña debe tener al menos 8 caracteres, 1 letra, 1 número y 1 carácter especial.", Alert.AlertType.WARNING);
             return;
         }
 
@@ -253,13 +260,18 @@ public class SignupController implements Initializable {
             return;
         }
 
+
+        if (fechaNacimiento.isAfter(LocalDate.of(2020, 12, 31))) {
+            mostrarAlerta("Error", "La fecha de nacimiento del estudiante no puede ser posterior al 2020.", Alert.AlertType.WARNING);
+            return;
+        }
+
         FileInputStream fotodeusuario = null;
 
         try (Connection conn = conectar()) {
             conn.setAutoCommit(false);
 
             String sqlUsuario = "INSERT INTO usuario (nombre_usuario, nombre, apellido, contrasenia, tipo_usuario, cedula, id_institucion, foto_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
             try (PreparedStatement stmt = conn.prepareStatement(sqlUsuario)) {
                 stmt.setString(1, usuarioField.getText());
                 stmt.setString(2, nombre);
@@ -268,22 +280,18 @@ public class SignupController implements Initializable {
                 stmt.setString(5, "Estudiante");
                 stmt.setString(6, cedula);
                 stmt.setInt(7, idInstitucion);
-
                 if (archivoImagenSeleccionada != null) {
                     try {
                         fotodeusuario = new FileInputStream(archivoImagenSeleccionada);
                         stmt.setBinaryStream(8, fotodeusuario, (int) archivoImagenSeleccionada.length());
                     } catch (IOException e) {
                         stmt.setNull(8, Types.BLOB);
-                        System.err.println("Error leyendo la imagen: " + e.getMessage());
                     }
                 } else {
                     stmt.setNull(8, Types.BLOB);
                 }
-
                 stmt.executeUpdate();
             }
-
 
             String insertEstudiante = "INSERT INTO estudiante (cedula, nombre, apellido, fecha_nacimiento, direccion, sexo, id_institucion) VALUES (?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement stmtEst = conn.prepareStatement(insertEstudiante)) {
@@ -301,7 +309,6 @@ public class SignupController implements Initializable {
             mostrarAlerta("Éxito", "Estudiante registrado correctamente", Alert.AlertType.INFORMATION);
             irAlLogin(null);
         } catch (SQLException e) {
-            e.printStackTrace();
             mostrarAlerta("Error", "No se pudo registrar el estudiante: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
@@ -314,6 +321,13 @@ public class SignupController implements Initializable {
 
         if (fechaNacimiento == null || salarioText.isEmpty() || direccion.isEmpty() || sexo == null) {
             mostrarAlerta("Campos incompletos", "Completa todos los campos del empleado.", Alert.AlertType.WARNING);
+            return;
+        }
+
+
+        LocalDate fechaLimite = LocalDate.of(2007, 7, 31);
+        if (fechaNacimiento.isAfter(fechaLimite)) {
+            mostrarAlerta("Error", "El empleado debe ser mayor de edad (nacido antes de agosto 2007).", Alert.AlertType.WARNING);
             return;
         }
 
@@ -335,7 +349,7 @@ public class SignupController implements Initializable {
                 stmtEmp.executeUpdate();
             }
 
-            String insertUsuario = "INSERT INTO usuario (nombre_usuario, nombre, apellido, contrasenia, tipo_usuario, cedula, id_institucion,foto_usuario) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+            String insertUsuario = "INSERT INTO usuario (nombre_usuario, nombre, apellido, contrasenia, tipo_usuario, cedula, id_institucion, foto_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement stmtUsuario = conn.prepareStatement(insertUsuario)) {
                 stmtUsuario.setString(1, usuario);
                 stmtUsuario.setString(2, nombre);
@@ -351,12 +365,10 @@ public class SignupController implements Initializable {
                         stmtUsuario.setBinaryStream(8, fis, (int) archivoImagenSeleccionada.length());
                     } catch (IOException e) {
                         stmtUsuario.setNull(8, Types.BLOB);
-                        System.err.println("Error leyendo la imagen: " + e.getMessage());
                     }
                 } else {
                     stmtUsuario.setNull(8, Types.BLOB);
                 }
-
                 stmtUsuario.executeUpdate();
             }
 
@@ -364,7 +376,6 @@ public class SignupController implements Initializable {
             mostrarAlerta("Éxito", "Empleado registrado correctamente", Alert.AlertType.INFORMATION);
             irAlLogin(null);
         } catch (SQLException | NumberFormatException e) {
-            e.printStackTrace();
             mostrarAlerta("Error", "No se pudo registrar el empleado: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
@@ -378,6 +389,7 @@ public class SignupController implements Initializable {
         String direccion = direccionAcudiente.getText();
         String sexo = sexoAcudienteBox.getValue();
         String cedulaEstudiante = cedulaEstudianteAcudidoField.getText();
+        LocalDate fechaNacimiento = fechaNacimientoEmpleado.getValue(); // Si lo usas para edad
 
         if (telefono.isEmpty() || correo.isEmpty() || parentesco == null || estadoCivil == null ||
                 salarioText.isEmpty() || direccion.isEmpty() || sexo == null || cedulaEstudiante.isEmpty()) {
@@ -386,12 +398,29 @@ public class SignupController implements Initializable {
         }
 
 
+        if (!telefono.matches("^\\d{7,8}$")) {
+            mostrarAlerta("Error", "El teléfono debe contener solo números y tener entre 7 y 8 dígitos.", Alert.AlertType.WARNING);
+            return;
+        }
+
+
+        if (!correo.contains("@")) {
+            mostrarAlerta("Error", "El correo debe contener '@'.", Alert.AlertType.WARNING);
+            return;
+        }
+
+
+        LocalDate fechaLimite = LocalDate.of(2007, 7, 31);
+        if (fechaNacimiento != null && fechaNacimiento.isAfter(fechaLimite)) {
+            mostrarAlerta("Error", "El acudiente debe ser mayor de edad.", Alert.AlertType.WARNING);
+            return;
+        }
+
         try (Connection conn = conectar()) {
             conn.setAutoCommit(false);
 
-            // Insertar en tabla usuarios
-            String insertUsuario = "INSERT INTO usuario (nombre_usuario, nombre, apellido, contrasenia, tipo_usuario, cedula, id_institucion) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement stmtUsuario = conn.prepareStatement(insertUsuario)) {
+            String sqlUsuario = "INSERT INTO usuario (nombre_usuario, nombre, apellido, contrasenia, tipo_usuario, cedula, id_institucion, foto_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement stmtUsuario = conn.prepareStatement(sqlUsuario)) {
                 stmtUsuario.setString(1, usuarioField.getText());
                 stmtUsuario.setString(2, nombre);
                 stmtUsuario.setString(3, apellido);
@@ -399,68 +428,60 @@ public class SignupController implements Initializable {
                 stmtUsuario.setString(5, "Acudiente");
                 stmtUsuario.setString(6, cedula);
                 stmtUsuario.setInt(7, idInstitucionB);
+                if (archivoImagenSeleccionada != null) {
+                    try (FileInputStream fis = new FileInputStream(archivoImagenSeleccionada)) {
+                        stmtUsuario.setBinaryStream(8, fis, (int) archivoImagenSeleccionada.length());
+                    } catch (IOException e) {
+                        stmtUsuario.setNull(8, Types.BLOB);
+                    }
+                } else {
+                    stmtUsuario.setNull(8, Types.BLOB);
+                }
                 stmtUsuario.executeUpdate();
             }
 
-            // Insertar en tabla acudientes
-            String insertAcudiente = "INSERT INTO acudiente (cedula, nombre, apellido, telefono, correo, parentesco, estado_civil, salario, direccion, sexo, id_estudiante) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement stmtAcu = conn.prepareStatement(insertAcudiente)) {
-                stmtAcu.setString(1, cedula);
-                stmtAcu.setString(2, nombre);
-                stmtAcu.setString(3, apellido);
-                stmtAcu.setString(4, telefono);
-                stmtAcu.setString(5, correo);
-                stmtAcu.setString(6, parentesco);
-                stmtAcu.setString(7, estadoCivil);
-                stmtAcu.setDouble(8, Double.parseDouble(salarioText));
-                stmtAcu.setString(9, direccion);
-                stmtAcu.setString(10, sexo);
-                stmtAcu.setInt(11, idEstudianteAcudiente);
-                stmtAcu.executeUpdate();
+            String sqlAcudiente = "INSERT INTO acudiente (cedula, nombre, apellido, telefono, correo, parentesco, estado_civil, salario, direccion, sexo, id_estudiante) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement stmtAcudiente = conn.prepareStatement(sqlAcudiente)) {
+                stmtAcudiente.setString(1, cedula);
+                stmtAcudiente.setString(2, nombre);
+                stmtAcudiente.setString(3, apellido);
+                stmtAcudiente.setString(4, telefono);
+                stmtAcudiente.setString(5, correo);
+                stmtAcudiente.setString(6, parentesco);
+                stmtAcudiente.setString(7, estadoCivil);
+                stmtAcudiente.setDouble(8, Double.parseDouble(salarioText));
+                stmtAcudiente.setString(9, direccion);
+                stmtAcudiente.setString(10, sexo);
+                stmtAcudiente.setInt(11, idEstudianteAcudiente);
+                stmtAcudiente.executeUpdate();
             }
 
             conn.commit();
             mostrarAlerta("Éxito", "Acudiente registrado correctamente", Alert.AlertType.INFORMATION);
             irAlLogin(null);
         } catch (SQLException | NumberFormatException e) {
-            e.printStackTrace();
             mostrarAlerta("Error", "No se pudo registrar el acudiente: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
 
     @FXML
     private void irAlLogin(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/dashboard/vistas/login.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) usuarioField.getScene().getWindow();
             stage.setScene(new Scene(root));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void abrirRegistroInstitucion() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/registro_institucion.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Registro de Institución Educativa");
-            stage.setScene(new Scene(root));
+            stage.setTitle("Iniciar Sesión");
             stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            mostrarAlerta("Error", "No se pudo cargar la ventana de inicio de sesión: " + e.getMessage(), Alert.AlertType.ERROR);
         }
-    }
-
-
-
-    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
     }
 }
