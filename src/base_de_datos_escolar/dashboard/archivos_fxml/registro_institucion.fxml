@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="821.0" prefWidth="398.0" spacing="10.0" styleClass="body-pane" stylesheets="@../ventanas.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.RegistroInstitucionController">
+<VBox alignment="CENTER" prefHeight="821.0" prefWidth="398.0" spacing="10.0" styleClass="body-pane" stylesheets="@../registros.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.RegistroInstitucionController">
 
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
@@ -25,47 +25,47 @@
       <font>
          <Font name="Pristina" size="12.0" />
       </font></Label>
-    <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="453.0" styleClass="arrow" stylesheets="@../ventanas.css" />
+    <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="453.0" styleClass="arrow" stylesheets="@../registros.css" />
 
     <Label text="Año de Fundación:" textFill="#7360f9">
       <font>
-         <Font size="39.0" />
+         <Font size="17.0" />
       </font></Label>
     <TextField fx:id="txtAnioFundacion" promptText="Ejemplo: 1990" />
 
     <Label text="Capacidad de Estudiantes:" textFill="#7360f9">
       <font>
-         <Font size="36.0" />
+         <Font size="16.0" />
       </font></Label>
     <TextField fx:id="txtCapacidadEstudiantes" promptText="Ejemplo: 500" />
 
     <Label text="Dirección:" textFill="#7360f9">
       <font>
-         <Font size="36.0" />
+         <Font size="17.0" />
       </font></Label>
     <TextField fx:id="txtDireccion" />
 
     <Label text="Nivel Educativo:" textFill="#7360f9">
       <font>
-         <Font size="36.0" />
+         <Font size="17.0" />
       </font></Label>
     <ComboBox fx:id="comboNivelEducativo" prefHeight="44.0" prefWidth="246.0" promptText="Seleccione nivel educativo" />
 
     <Label text="Provincia:" textFill="#7360f9">
       <font>
-         <Font size="36.0" />
+         <Font size="17.0" />
       </font></Label>
     <ComboBox fx:id="comboProvincia" promptText="Seleccione provincia" />
 
     <Label text="Distrito:" textFill="#7360f9">
       <font>
-         <Font size="36.0" />
+         <Font size="17.0" />
       </font></Label>
     <ComboBox fx:id="comboDistrito" disable="true" promptText="Seleccione distrito" />
 
-    <Label text="Corregimiento:" textFill="#7360f9">
+    <Label stylesheets="@../ventanas.css" text="Corregimiento:" textFill="#7360f9">
       <font>
-         <Font size="36.0" />
+         <Font size="17.0" />
       </font></Label>
     <ComboBox fx:id="comboCorregimiento" disable="true" promptText="Seleccione corregimiento" />
 

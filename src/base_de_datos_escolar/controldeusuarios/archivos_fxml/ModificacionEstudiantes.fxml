@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="609.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController">
+<AnchorPane prefHeight="609.0" prefWidth="719.0" stylesheets="@../../dashboard/registros.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController">
    <children>
-      <Label layoutX="52.0" layoutY="34.0" text="Actualización de datos">
+      <Label layoutX="52.0" layoutY="34.0" text="Actualización de datos" textFill="#b9d440">
          <font>
             <Font name="Raleway Bold" size="24.0" />
          </font>
@@ -21,7 +21,7 @@
 
       <!-- Campos comunes -->
       <ComboBox fx:id="tipoUsuarioBox" layoutX="69.0" layoutY="112.0" prefHeight="25.0" prefWidth="223.0" promptText="Tipo de Usuario" />
-      <ComboBox fx:id="comboInstitucion" layoutX="69.0" layoutY="151.0" prefHeight="25.0" prefWidth="223.0" promptText="Seleccione institución" />
+      <ComboBox fx:id="comboInstitucion" layoutX="69.0" layoutY="160.0" prefHeight="25.0" prefWidth="223.0" promptText="Seleccione institución" />
 
       <TextField fx:id="nombreField" layoutX="69.0" layoutY="215.0" prefHeight="23.0" prefWidth="223.0" promptText="Nombre" />
       <TextField fx:id="apellidoField" layoutX="69.0" layoutY="253.0" prefHeight="25.0" prefWidth="223.0" promptText="Apellido" />
@@ -47,10 +47,15 @@
 
       <!-- Botón de modificación -->
       <Button layoutX="291.0" layoutY="491.0" mnemonicParsing="false" onAction="#modificarUsuario" prefHeight="40.0" prefWidth="137.0" text="Modificar Usuario" />
-      <Label layoutX="52.0" layoutY="69.0" text="Estudiantes">
+      <Label layoutX="52.0" layoutY="69.0" text="Estudiantes" textFill="#b9d440">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <ImageView fitHeight="90.0" fitWidth="104.0" layoutX="594.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../dashboard/imagenes/Blue%20and%20White%20Cosmetics%20Brand%20Logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

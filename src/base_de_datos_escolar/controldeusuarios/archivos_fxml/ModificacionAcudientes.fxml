@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="481.0" prefWidth="644.0" stylesheets="@../../dashboard/ventanas.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorAcudienteController">
+<AnchorPane prefHeight="481.0" prefWidth="644.0" stylesheets="@../../dashboard/registros.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorAcudienteController">
     <children>
 
         <!-- Columna Izquierda -->
@@ -23,8 +24,6 @@
                 <TextField fx:id="apellidoField" prefHeight="25.0" prefWidth="223.0" promptText="Apellido" />
                 <TextField fx:id="cedulaField" prefHeight="25.0" prefWidth="223.0" promptText="Cédula" />
                 <TextField fx:id="correoField" prefHeight="25.0" prefWidth="223.0" promptText="Correo Electrónico" />
-            <TextField />
-            <TextField promptText="Estudiante Acudido " />
             </children>
         </VBox>
 
@@ -48,9 +47,9 @@
         </VBox>
 
         <!-- Botón de modificación -->
-        <Button layoutX="238.0" layoutY="465.0" mnemonicParsing="false" onAction="#modificarAcudiente" prefHeight="40.0" prefWidth="137.0" text="Modificar Acudiente">
+        <Button layoutX="238.0" layoutY="465.0" mnemonicParsing="false" onAction="#modificarAcudiente" prefHeight="40.0" prefWidth="137.0" text="Modificar " textFill="#7360f9">
          <font>
-            <Font size="36.0" />
+            <Font size="15.0" />
          </font></Button>
       <ImageView fitHeight="166.0" fitWidth="99.0" layoutX="541.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -58,12 +57,17 @@
          </image>
       </ImageView>
             <ComboBox fx:id="estudianteCombo" layoutX="307.0" layoutY="385.0" prefHeight="36.0" prefWidth="223.0" promptText="Seleccione el estudiante" />
-          <TextField fx:id="telefonoField" layoutX="43.0" layoutY="329.0" prefHeight="25.0" prefWidth="223.0" promptText="Teléfono" />
-      <Label layoutX="41.0" layoutY="32.0" prefHeight="54.0" prefWidth="372.0" stylesheets="@../../dashboard/ventanas.css" text="Actualización del acudiente " textFill="#7360f9">
+          <TextField fx:id="telefonoField" layoutX="43.0" layoutY="317.0" prefHeight="25.0" prefWidth="223.0" promptText="Teléfono" />
+      <Label layoutX="41.0" layoutY="32.0" prefHeight="54.0" prefWidth="372.0" text="Actualización del acudiente " textFill="#7360f9">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
+         <stylesheets>
+            <URL value="@../../dashboard/ventanas.css" />
+            <URL value="@../../dashboard/registros.css" />
+         </stylesheets>
       </Label>
+      <TextField layoutX="50.0" layoutY="389.0" prefHeight="34.0" prefWidth="215.0" promptText="Estudiante Acudido " />
     </children>
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
