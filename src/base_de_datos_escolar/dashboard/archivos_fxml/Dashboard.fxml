@@ -12,9 +12,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="641.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.DashboardController">
    <Label layoutX="47.0" layoutY="14.0" style="-fx-font-size: 18px;" text="Bienvenido al Panel Principal" />
@@ -103,7 +102,7 @@
       </children>
    </Pane>
    <ComboBox fx:id="cmbProvincia" layoutX="876.0" layoutY="94.0" prefHeight="17.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@../estilo.css" />
-   <Separator layoutX="865.0" layoutY="59.0" orientation="VERTICAL" prefHeight="562.0" prefWidth="0.0" />
+   <Separator layoutX="865.0" layoutY="59.0" orientation="VERTICAL" prefHeight="1142.0" prefWidth="2.0" />
    <Label layoutX="876.0" layoutY="52.0" text="Área de control">
       <font>
          <Font name="Raleway Bold" size="14.0" />
@@ -159,36 +158,6 @@
          <PieChart fx:id="graficaAprob" layoutY="28.0" prefHeight="170.0" prefWidth="189.0" />
       </children>
    </Pane>
-   <Pane fx:id="primerosPuestos" layoutX="17.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
-      <children>
-         <ImageView fx:id="primerlugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         <Label fx:id="nombrePrimerLugar" layoutX="7.0" layoutY="118.0" text="Label">
-            <font>
-               <Font name="Raleway Bold" size="14.0" />
-            </font>
-         </Label>
-      </children>
-   </Pane>
-   <Pane layoutX="161.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
-      <children>
-         <ImageView fx:id="segundolugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         <Label fx:id="nombreSegundLugar" layoutX="14.0" layoutY="118.0" text="Label">
-            <font>
-               <Font name="Raleway Bold" size="14.0" />
-            </font>
-         </Label>
-      </children>
-   </Pane>
-   <Pane layoutX="304.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
-      <children>
-         <ImageView fx:id="tercerlugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         <Label fx:id="nombreTercerLugar" layoutX="14.0" layoutY="118.0" text="Label">
-            <font>
-               <Font name="Raleway Bold" size="14.0" />
-            </font>
-         </Label>
-      </children>
-   </Pane>
    <Separator layoutX="27.0" layoutY="139.0" prefHeight="3.0" prefWidth="811.0" />
    <Pane fx:id="fondoPane11" layoutX="330.0" layoutY="172.0" prefHeight="280.0" prefWidth="300.0" styleClass="fondoPane" stylesheets="@../estilo.css">
       <children>
@@ -210,17 +179,17 @@
 
    <Hyperlink layoutX="996.0" layoutY="462.0" onAction="#reiniciarFiltros" text="Borrar filtro" />
 
-   <VBox layoutX="20" layoutY="400" spacing="25" alignment="TOP_CENTER">
-      <Label text="Estadísticas Visuales" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+   <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="463.0" prefHeight="748.0" prefWidth="613.0" spacing="25" stylesheets="@../estilo.css">
+      <Label prefHeight="0.0" prefWidth="170.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Estadísticas Visuales" />
 
-      <VBox spacing="10" alignment="CENTER">
-         <Label text="Distribución por Género" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-         <PieChart fx:id="generoChart" prefWidth="400" prefHeight="300" />
+      <VBox alignment="CENTER" spacing="10" styleClass="fondo">
+         <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" stylesheets="@../estilo.css" text="Distribución por Género" />
+         <PieChart fx:id="generoChart" prefHeight="273.0" prefWidth="600.0" />
       </VBox>
 
-      <VBox spacing="10" alignment="CENTER">
-         <Label text="Estudiantes por Institución" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-         <BarChart fx:id="institucionChart" prefWidth="600" prefHeight="400">
+      <VBox alignment="CENTER" prefHeight="520.0" prefWidth="614.0" spacing="10" styleClass="fondoPane">
+         <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Estudiantes por Institución" />
+         <BarChart fx:id="institucionChart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="562.0" styleClass="graficaPane">
             <xAxis>
                <CategoryAxis label="Institución" />
             </xAxis>
