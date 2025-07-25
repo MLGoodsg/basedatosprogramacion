@@ -87,9 +87,9 @@
             </children>
         </HBox>
       <Accordion GridPane.rowIndex="5" />
-      <Label contentDisplay="CENTER" prefHeight="18.0" prefWidth="187.0" styleClass="text-in-fields-color" stylesheets="@../../dashboard/ventanas.css" text="Empleado " textFill="#7360f9" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label contentDisplay="CENTER" prefHeight="58.0" prefWidth="347.0" styleClass="text-in-fields-color" stylesheets="@../../dashboard/ventanas.css" text="Modificación de empleados " textFill="#7360f9" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
-            <Font name="Bell MT" size="96.0" />
+            <Font name="Arial Black" size="96.0" />
          </font>
       </Label>
     </children>

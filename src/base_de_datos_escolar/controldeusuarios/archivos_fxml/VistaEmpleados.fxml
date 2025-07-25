@@ -18,7 +18,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../dashboard/registros.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.EmpleadoController">
     <children>
         <!-- Título -->
-        <Label layoutX="24.0" layoutY="29.0" text="Empleados" textFill="#7360f9">
+        <Label layoutX="24.0" layoutY="29.0" text="Empleados" textFill="#63f760">
             <font>
                 <Font name="Raleway Bold" size="36.0" />
             </font>
