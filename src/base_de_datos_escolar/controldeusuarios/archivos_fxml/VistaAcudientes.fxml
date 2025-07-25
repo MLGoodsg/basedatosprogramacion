@@ -16,7 +16,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="1377.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
     <children>
         <!-- Título -->
-        <Label layoutX="31.0" layoutY="22.0" text="Acudientes">
+        <Label layoutX="31.0" layoutY="22.0" text="Acudientes" textFill="#c0e30b">
             <font>
                 <Font name="Raleway Bold" size="36.0" />
             </font>
