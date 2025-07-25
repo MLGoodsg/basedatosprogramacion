@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<HBox fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0" stylesheets="@../../dashboard/estilo.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.PanelUsuariosController">
+<?import javafx.scene.text.Font?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0"
+      stylesheets="@../../dashboard/estilo.css" xmlns="http://javafx.com/javafx/24.0.1"
+      fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.PanelUsuariosController">
    <children>
       <VBox fx:id="vbox_pane" prefHeight="400.0" prefWidth="162.0" styleClass="vbox_pane">
          <children>
@@ -31,6 +34,14 @@
                      <image>
                         <Image url="@../../dashboard/imagenes/iconoPerfil.png" />
                      </image></ImageView>
+                  <Button fx:id="botonMateriaHorario" layoutX="56.0" layoutY="244.0" mnemonicParsing="false"
+                          onAction="#MateriaHorarioClick" prefHeight="32.0" prefWidth="140.0"
+                          styleClass="dashboard_button" stylesheets="@../../dashboard/estilo.css"
+                          text="Materias y horarios">
+                     <font>
+                        <Font name="Raleway Bold" size="13.0"/>
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
