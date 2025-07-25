@@ -1,40 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<HBox fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0" stylesheets="@../estilo.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.NuevoPanel">
+<?import java.net.URL?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0" stylesheets="@../estilo.css"
+      xmlns="http://javafx.com/javafx/24.0.1" fx:controller="base_de_datos_escolar.dashboard.clasesController.NuevoPanel">
    <children>
       <VBox fx:id="vbox_pane" prefHeight="400.0" prefWidth="162.0" styleClass="vbox_pane">
          <children>
             <AnchorPane fx:id="side_anchorpane" prefHeight="641.0" prefWidth="217.0" styleClass="side_anchorpane">
                <children>
-                  <Button fx:id="dashboard_button" layoutX="44.0" layoutY="99.0" mnemonicParsing="false" onAction="#dashboardClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" text="Panel de control" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="dashboard_button" layoutX="44.0" layoutY="99.0" mnemonicParsing="false"
+                          onAction="#dashboardClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button"
+                          stylesheets="@../estilo.css" text="Panel de control" textFill="WHITE"
+                          AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="estudiantes_button" layoutX="44.0" layoutY="139.0" mnemonicParsing="false" onAction="#estudiantebuttonClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" stylesheets="@../estilo.css" text="Estudiantes" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="estudiantes_button" layoutX="20.0" layoutY="168.0" mnemonicParsing="false"
+                          onAction="#estudiantebuttonClick" prefHeight="32.0" prefWidth="140.0"
+                          styleClass="dashboard_button" stylesheets="@../estilo.css" text="Estudiantes" textFill="WHITE"
+                          AnchorPane.rightAnchor="2.0">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="maestros_button" layoutX="44.0" layoutY="179.0" mnemonicParsing="false" onAction="#maestrobuttonClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" stylesheets="@../estilo.css" text="Maestros" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="maestros_button" layoutX="20.0" layoutY="233.0" mnemonicParsing="false"
+                          onAction="#maestrobuttonClick" prefHeight="32.0" prefWidth="140.0"
+                          styleClass="dashboard_button" stylesheets="@../estilo.css" text="Maestros" textFill="WHITE"
+                          AnchorPane.rightAnchor="2.0">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblNombreUsuario" layoutX="69.0" layoutY="557.0" text="Label" />
-                  <Label layoutX="18.0" layoutY="312.0" text="Label" />
-                  <ImageView fx:id="imgFotoUsuario" fitHeight="32.0" fitWidth="48.0" layoutX="32.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+                  <Label fx:id="lblNombreUsuario" layoutX="56.0" layoutY="542.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="14.0"/>
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgFotoUsuario" fitHeight="79.0" fitWidth="62.0" layoutX="56.0" layoutY="460.0"
+                             pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagenes/iconoPerfil.png" />
                      </image></ImageView>
-                  <Button fx:id="btnControldeusuarios" layoutX="20.0" layoutY="511.0" mnemonicParsing="false" onAction="#botonControldeusuario" text="Control de Usuarios" />
-                  <Button fx:id="btnCerrarSesion" onAction="#cerrarSesion" layoutX="43.0" layoutY="595.0" mnemonicParsing="false" text="Cerrar Sesion" />
+                  <Button fx:id="btnControldeusuarios" layoutX="29.0" layoutY="386.0" mnemonicParsing="false"
+                          onAction="#botonControldeusuario" styleClass="dashboard_button" stylesheets="@../estilo.css"
+                          text="Control de Usuarios" textFill="WHITE"/>
+                  <Button fx:id="btnCerrarSesion" layoutX="36.0" layoutY="583.0" mnemonicParsing="false"
+                          onAction="#cerrarSesion" styleClass="dashboard_buttonCambio" stylesheets="@../estilo.css"
+                          text="Cerrar Sesion" textFill="#f6f6f6">
+                     <font>
+                        <Font name="System Bold" size="12.0"/>
+                     </font>
+                  </Button>
                </children>
+               <stylesheets>
+                  <URL value="@../panel%20de%20colores.css"/>
+                  <URL value="@../paneldecolores.css"/>
+               </stylesheets>
             </AnchorPane>
          </children>
       </VBox>

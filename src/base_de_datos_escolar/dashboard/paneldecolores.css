@@ -1,12 +1,13 @@
 .side_anchorpane {
-    -fx-background-color: #7360F9;
-    -fx-border-color: #FFF1EB;
+    -fx-background-color: #FFF1EB;
+    -fx-border-color: #7360F9;
     -fx-border-width: 2px;
     -fx-border-radius: 50 0 0 50;
     -fx-background-radius: 50 0 0 50;
     -fx-border-style: solid;
     -fx-spacing: 0;
     -fx-padding: 0;
+    -fx-text-fill: #FFFFFF;
 }
 
 .vbox_pane {

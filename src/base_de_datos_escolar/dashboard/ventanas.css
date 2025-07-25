@@ -30,7 +30,7 @@
 
 /* Estilos para el título principal "Registro de Institución Educativa" */
 .header-label {
-    -fx-text-fill: #BC9BF3; /* ¡COLOR MORADO APLICADO AQUÍ! (Morado medio) */
+    -fx-text-fill: #000000; /* ¡COLOR MORADO APLICADO AQUÍ! (Morado medio) */
     -fx-font-size: 40px; /* ¡TAMAÑO DE FUENTE 40PX APLICADO AQUÍ! */
     -fx-font-weight: bold; /* Negrita */
     -fx-alignment: center; /* Centrar el texto */
@@ -39,7 +39,7 @@
 
 /* Estilos para las etiquetas de los campos (Nombre, Año de Fundación, etc.) */
 .form-label {
-    -fx-text-fill: #BC9BF3; /* Morado medio */
+    -fx-text-fill: #000000; /* Morado medio */
     -fx-font-size: 14px;
     -fx-font-weight: bold; /* Negrita, como en la imagen */
     -fx-padding: 10px 0 5px 0; /* Espacio arriba y abajo para separar de campos */
@@ -48,7 +48,7 @@
 /* Estilos para los campos de entrada de texto (TextField) */
 .text-field {
     -fx-background-color: #D5EC7F; /* Verde aclarado */
-    -fx-text-fill: #BC9BF3; /* Texto morado */
+    -fx-text-fill: #000000; /* Texto morado */
     -fx-font-size: 14px;
     -fx-border-color: #D5EC7F; /* Borde del mismo color que el fondo para un aspecto 'plano' */
     -fx-border-width: 1px;
@@ -83,7 +83,7 @@
 /* Estilo para la celda seleccionada dentro del ComboBox */
 .combo-box .list-cell {
     -fx-background-color: #D5EC7F; /* Fondo de los ítems en la lista (VERDE ACLARADO) */
-    -fx-text-fill: #BC9BF3; /* Texto morado */
+    -fx-text-fill: #000000; /* Texto morado */
     -fx-padding: 8px 10px;
 }
 

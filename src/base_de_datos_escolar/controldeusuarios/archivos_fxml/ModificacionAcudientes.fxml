@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <AnchorPane prefHeight="481.0" prefWidth="644.0" stylesheets="@../../dashboard/ventanas.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorAcudienteController">
     <children>
 
@@ -52,12 +44,8 @@
          <font>
             <Font size="36.0" />
          </font></Button>
-      <ImageView fitHeight="166.0" fitWidth="99.0" layoutX="541.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/Blue%20and%20White%20Cosmetics%20Brand%20Logo.png" />
-         </image>
-      </ImageView>
-            <ComboBox fx:id="estudianteCombo" layoutX="307.0" layoutY="385.0" prefHeight="36.0" prefWidth="223.0" promptText="Seleccione el estudiante" />
+
+        <ComboBox fx:id="estudianteCombo" layoutX="307.0" layoutY="385.0" prefHeight="36.0" prefWidth="223.0" promptText="Seleccione el estudiante" />
           <TextField fx:id="telefonoField" layoutX="43.0" layoutY="329.0" prefHeight="25.0" prefWidth="223.0" promptText="Teléfono" />
       <Label layoutX="41.0" layoutY="32.0" prefHeight="54.0" prefWidth="372.0" stylesheets="@../../dashboard/ventanas.css" text="Actualización del acudiente " textFill="#7360f9">
          <font>

@@ -4,7 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 <HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0"
       stylesheets="@../../dashboard/estilo.css" xmlns="http://javafx.com/javafx/24.0.1"
@@ -12,9 +12,12 @@
    <children>
       <VBox fx:id="vbox_pane" prefHeight="400.0" prefWidth="162.0" styleClass="vbox_pane">
          <children>
-            <AnchorPane fx:id="side_anchorpane" prefHeight="641.0" prefWidth="217.0" styleClass="side_anchorpane">
+            <AnchorPane fx:id="side_anchorpane" prefHeight="641.0" prefWidth="217.0" styleClass="side_anchorpane"
+                        stylesheets="@../../dashboard/paneldecolores.css">
                <children>
-                  <Button fx:id="botonEstudiante" layoutX="44.0" layoutY="99.0" mnemonicParsing="false" onAction="#estudiantesClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" text="Estudiantes" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="botonEstudiante" layoutX="58.0" layoutY="89.0" mnemonicParsing="false"
+                          onAction="#estudiantesClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button"
+                          text="Estudiantes" AnchorPane.rightAnchor="2.0">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
@@ -24,13 +27,20 @@
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="botonAcudientes" layoutX="44.0" layoutY="179.0" mnemonicParsing="false" onAction="#acudientesClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button" stylesheets="@../../dashboard/estilo.css" text="Acudientes" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="botonAcudientes" layoutX="58.0" layoutY="190.0" mnemonicParsing="false"
+                          onAction="#acudientesClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button"
+                          stylesheets="@../../dashboard/estilo.css" text="Acudientes" AnchorPane.rightAnchor="2.0">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblNombreUsuario" layoutX="67.0" layoutY="598.0" text="Label" />
-                  <ImageView fx:id="imgFotoUsuario" fitHeight="32.0" fitWidth="48.0" layoutX="26.0" layoutY="591.0" pickOnBounds="true" preserveRatio="true">
+                  <Label fx:id="lblNombreUsuario" layoutX="71.0" layoutY="582.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="13.0"/>
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgFotoUsuario" fitHeight="59.0" fitWidth="80.0" layoutX="71.0" layoutY="503.0"
+                             pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../dashboard/imagenes/iconoPerfil.png" />
                      </image></ImageView>

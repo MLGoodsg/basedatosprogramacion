@@ -2,8 +2,10 @@ package base_de_datos_escolar.dashboard.clasesController;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 import java.sql.*;
 import java.util.HashMap;
@@ -154,6 +156,10 @@ public class RegistroInstitucionController {
             anioFundacion = Integer.parseInt(anioFundacionStr);
         } catch (NumberFormatException e) {
             mostrarAlerta("Error", "Año de fundación inválido.", AlertType.ERROR);
+            return;
+        }
+        if (anioFundacion > 2025) {
+            mostrarAlerta("Error", "Este año aún no transcurre.", AlertType.ERROR);
             return;
         }
 
