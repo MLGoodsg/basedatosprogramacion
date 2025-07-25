@@ -1,17 +1,16 @@
 package base_de_datos_escolar.dashboard.clasesController;
+
 import javafx.collections.FXCollections;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-
-
-import javafx.scene.control.*;
 
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
-
-import javafx.concurrent.Task;
+import java.util.TreeMap;
 
 public class DashboardController {
 
@@ -28,75 +27,62 @@ public class DashboardController {
     @FXML private ComboBox<String> cmbDistrito;
     @FXML private ComboBox<String> cmbCorregimiento;
 
-    private Map<String, Integer> provinciasMap = new HashMap<>();
-    private Map<String, Integer> distritosMap = new HashMap<>();
-    private Map<String, Integer> corregimientosMap = new HashMap<>();
+    private final Map<String, Integer> provinciasMap = new TreeMap<>();
+    private final Map<String, Integer> distritosMap = new TreeMap<>();
+    private final Map<String, Integer> corregimientosMap = new TreeMap<>();
 
     @FXML
     public void initialize() {
-        cmbAnioacademico.setItems(FXCollections.observableArrayList("2023", "2024", "2025"));
-        cmbSeccion.setItems(FXCollections.observableArrayList("Primaria", "Secundaria"));
-        cmbRangopromedio.setItems(FXCollections.observableArrayList("menor a 3.00", "3.00-4.00", "4.00-5.00"));
-        cmbSexo.setItems(FXCollections.observableArrayList("F", "M"));
-
+        cargarFiltrosEstaticos();
         cargarCantidadEnSegundoPlano();
         cargarProvincias();
+
         cmbProvincia.setOnAction(e -> {
-            String provincia = cmbProvincia.getValue();
-            if (provincia != null) {
-                cargarDistritos(provinciasMap.get(provincia));
-                cmbDistrito.setDisable(false);
-                cmbCorregimiento.getItems().clear();
-                cmbCorregimiento.setDisable(true);
+            String provinciaSeleccionada = cmbProvincia.getValue();
+            cmbDistrito.getItems().clear();
+            cmbCorregimiento.getItems().clear();
+            cmbDistrito.setDisable(true);
+            cmbCorregimiento.setDisable(true);
+            if (provinciaSeleccionada != null) {
+                cargarDistritos(provinciasMap.get(provinciaSeleccionada));
             }
         });
 
         cmbDistrito.setOnAction(e -> {
-            String distrito = cmbDistrito.getValue();
-            if (distrito != null) {
-                cargarCorregimientos(distritosMap.get(distrito));
-                cmbCorregimiento.setDisable(false);
+            String distritoSeleccionado = cmbDistrito.getValue();
+            cmbCorregimiento.getItems().clear();
+            cmbCorregimiento.setDisable(true);
+            if (distritoSeleccionado != null) {
+                cargarCorregimientos(distritosMap.get(distritoSeleccionado));
             }
         });
     }
 
     private Connection conectar() throws SQLException {
-        return DriverManager.getConnection(
-                "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar",
-                "root",
-                "abvqWjezmsgvxfbtyvYJoQAzNSWHpEnw"
-        );
+        final String URL = "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar";
+        final String USUARIO = "root";
+        final String CONTRASENA = "abvqWjezmsgvxfbtyvYJoQAzNSWHpEnw";
+        return DriverManager.getConnection(URL, USUARIO, CONTRASENA);
     }
-
 
     private Map<String, Integer> obtenerCantidadRegistros(Connection conn) throws SQLException {
         Map<String, Integer> resultados = new HashMap<>();
 
-        String tablaInstituciones = "SELECT COUNT(*) AS total FROM institucion";
-        String tablaEstudiantes = "SELECT COUNT(*) AS total FROM estudiante";
-        String tablaMaestros = "SELECT COUNT(*) AS total FROM empleado WHERE tipo_cargo = 'Docente'";
-        String tablaAcudientes = "SELECT COUNT(*) AS total FROM acudiente";
-
-        PreparedStatement psInst = conn.prepareStatement(tablaInstituciones);
-        PreparedStatement psEst = conn.prepareStatement(tablaEstudiantes);
-        PreparedStatement psMaes = conn.prepareStatement(tablaMaestros);
-        PreparedStatement psAcud = conn.prepareStatement(tablaAcudientes);
-
-        ResultSet rsInst = psInst.executeQuery();
-        if (rsInst.next()) resultados.put("escuelas", rsInst.getInt("total"));
-
-        ResultSet rsEst = psEst.executeQuery();
-        if (rsEst.next()) resultados.put("estudiantes", rsEst.getInt("total"));
-
-        ResultSet rsMaes = psMaes.executeQuery();
-        if (rsMaes.next()) resultados.put("maestros", rsMaes.getInt("total"));
-
-        ResultSet rsAcud = psAcud.executeQuery();
-        if (rsAcud.next()) resultados.put("padres", rsAcud.getInt("total"));
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM institucion")) {
+            if (rs.next()) resultados.put("escuelas", rs.getInt(1));
+        }
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM estudiante")) {
+            if (rs.next()) resultados.put("estudiantes", rs.getInt(1));
+        }
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM empleado WHERE tipo_cargo = 'Docente'")) {
+            if (rs.next()) resultados.put("maestros", rs.getInt(1));
+        }
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM acudiente")) {
+            if (rs.next()) resultados.put("padres", rs.getInt(1));
+        }
 
         return resultados;
     }
-
 
     private void cargarCantidadEnSegundoPlano() {
         Task<Map<String, Integer>> task = new Task<>() {
@@ -117,105 +103,90 @@ public class DashboardController {
         });
 
         task.setOnFailed(event -> {
-            System.out.println("Error al cargar cantidades: " + task.getException().getMessage());
+            Throwable ex = task.getException();
+            ex.printStackTrace();
+            mostrarAlerta("Error de Conexión", "No se pudo cargar los datos del dashboard: " + ex.getMessage(), Alert.AlertType.ERROR);
         });
 
-        Thread hilo = new Thread(task);
-        hilo.setDaemon(true); // Para que no bloquee el cierre del programa
-        hilo.start();
-    }
-
-    private void cargarAnioacademico() {
-        provinciasMap.clear();
-        cmbProvincia.getItems().clear();
-
-        String consultaProvincia = "SELECT id_provincia, nombre FROM provincia ORDER BY nombre";
-
-        try (Connection conn = conectar();
-             Statement crearConsutla = conn.createStatement();
-             ResultSet provincia = crearConsutla.executeQuery(consultaProvincia)) {
-
-            while (provincia.next()) {
-                int id = provincia.getInt("id_provincia");
-                String nombre = provincia.getString("nombre");
-                provinciasMap.put(nombre, id);
-            }
-            cmbProvincia.getItems().addAll(provinciasMap.keySet());
-
-        } catch (SQLException e) {
-            mostrarAlerta("Error", "No se pudieron cargar las provincias: " + e.getMessage(), Alert.AlertType.ERROR);
-        }
+        new Thread(task).start();
     }
 
     private void cargarProvincias() {
         provinciasMap.clear();
-        cmbProvincia.getItems().clear();
-
-        String consultaProvincia = "SELECT id_provincia, nombre FROM provincia ORDER BY nombre";
+        String consulta = "SELECT id_provincia, nombre FROM provincia";
 
         try (Connection conn = conectar();
-             Statement crearConsutla = conn.createStatement();
-             ResultSet provincia = crearConsutla.executeQuery(consultaProvincia)) {
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(consulta)) {
 
-            while (provincia.next()) {
-                int id = provincia.getInt("id_provincia");
-                String nombre = provincia.getString("nombre");
-                provinciasMap.put(nombre, id);
+            while (rs.next()) {
+                provinciasMap.put(rs.getString("nombre"), rs.getInt("id_provincia"));
             }
-            cmbProvincia.getItems().addAll(provinciasMap.keySet());
+            cmbProvincia.getItems().setAll(provinciasMap.keySet());
 
         } catch (SQLException e) {
-            mostrarAlerta("Error", "No se pudieron cargar las provincias: " + e.getMessage(), Alert.AlertType.ERROR);
+            mostrarAlerta("Error de Base de Datos", "No se pudieron cargar las provincias: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void cargarDistritos(int idProvincia) {
         distritosMap.clear();
-        cmbDistrito.getItems().clear();
-
-        String consultaDistrito = "SELECT id_distrito, nombre FROM distrito WHERE id_provincia = ? ORDER BY nombre";
+        String consulta = "SELECT id_distrito, nombre FROM distrito WHERE id_provincia = ?";
 
         try (Connection conn = conectar();
-             PreparedStatement busquedaDistrito = conn.prepareStatement(consultaDistrito)) {
+             PreparedStatement pstmt = conn.prepareStatement(consulta)) {
 
-            busquedaDistrito.setInt(1, idProvincia);
-            ResultSet distrito= busquedaDistrito.executeQuery();
-
-            while (distrito.next()) {
-                int id = distrito.getInt("id_distrito");
-                String nombre = distrito.getString("nombre");
-                distritosMap.put(nombre, id);
+            pstmt.setInt(1, idProvincia);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    distritosMap.put(rs.getString("nombre"), rs.getInt("id_distrito"));
+                }
+                cmbDistrito.getItems().setAll(distritosMap.keySet());
+                cmbDistrito.setDisable(false);
             }
-            cmbDistrito.getItems().addAll(distritosMap.keySet());
-
         } catch (SQLException e) {
-            mostrarAlerta("Error", "No se pudieron cargar los distritos: " + e.getMessage(), Alert.AlertType.ERROR);
+            mostrarAlerta("Error de Base de Datos", "No se pudieron cargar los distritos: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void cargarCorregimientos(int idDistrito) {
         corregimientosMap.clear();
-        cmbCorregimiento.getItems().clear();
-
-        String consultaCorregimientoSQL = "SELECT id_corregimiento, nombre FROM corregimiento WHERE id_distrito = ? ORDER BY nombre";
+        String consulta = "SELECT id_corregimiento, nombre FROM corregimiento WHERE id_distrito = ?";
 
         try (Connection conn = conectar();
-             PreparedStatement busquedaCorregimiento = conn.prepareStatement(consultaCorregimientoSQL)) {
+             PreparedStatement pstmt = conn.prepareStatement(consulta)) {
 
-            busquedaCorregimiento.setInt(1, idDistrito);
-            ResultSet corregimiento = busquedaCorregimiento.executeQuery();
-
-            while (corregimiento.next()) {
-                int id = corregimiento.getInt("id_corregimiento");
-                String nombre = corregimiento.getString("nombre");
-                corregimientosMap.put(nombre, id);
+            pstmt.setInt(1, idDistrito);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    corregimientosMap.put(rs.getString("nombre"), rs.getInt("id_corregimiento"));
+                }
+                cmbCorregimiento.getItems().setAll(corregimientosMap.keySet());
+                cmbCorregimiento.setDisable(false);
             }
-            cmbCorregimiento.getItems().addAll(corregimientosMap.keySet());
-
         } catch (SQLException e) {
-            mostrarAlerta("Error", "No se pudieron cargar los corregimientos: " + e.getMessage(), Alert.AlertType.ERROR);
+            mostrarAlerta("Error de Base de Datos", "No se pudieron cargar los corregimientos: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
+    private void cargarFiltrosEstaticos() {
+        cmbAnioacademico.setItems(FXCollections.observableArrayList("2023", "2024", "2025"));
+        cmbSeccion.setItems(FXCollections.observableArrayList("Primaria", "Secundaria"));
+        cmbRangopromedio.setItems(FXCollections.observableArrayList("Menor a 3.00", "3.00 - 4.00", "4.01 - 5.00"));
+        cmbSexo.setItems(FXCollections.observableArrayList("F", "M"));
+    }
+
+    @FXML
+    private void reiniciarFiltros() {
+        cmbProvincia.setValue(null);
+        cmbDistrito.setValue(null);
+        cmbCorregimiento.setValue(null);
+        cmbAnioacademico.setValue(null);
+        cmbSeccion.setValue(null);
+        cmbRangopromedio.setValue(null);
+        cmbSexo.setValue(null);
+    }
+
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
@@ -223,22 +194,4 @@ public class DashboardController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    @FXML
-    private void borrarFiltro(){
-        cmbProvincia.getItems().clear();
-        cmbDistrito.getItems().clear();
-        cmbCorregimiento.getItems().clear();
-        cmbAnioacademico.getItems().clear();
-        cmbSeccion.getItems().clear();
-        cmbRangopromedio.getItems().clear();
-        cmbSexo.getItems().clear();
-        cargarProvincias();
-        cmbAnioacademico.setItems(FXCollections.observableArrayList("2023", "2024", "2025"));
-        cmbSeccion.setItems(FXCollections.observableArrayList("Primaria", "Secundaria"));
-        cmbRangopromedio.setItems(FXCollections.observableArrayList("menor a 3.00", "3.00-4.00", "4.00-5.00"));
-        cmbSexo.setItems(FXCollections.observableArrayList("F", "M"));
-
-
-    }
 }
-
