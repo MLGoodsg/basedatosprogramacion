@@ -40,10 +40,10 @@
                </Label>
                     <TextField fx:id="txtBuscar" prefWidth="200.0" promptText="Buscar..." styleClass="contadorEstudiantes" stylesheets="@../../dashboard/panel%20de%20colores.css" />
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button onAction="#actualizarDatos" text="Actualizar" />
-                    <Button fx:id="btnAgregar" onAction="#agregarAcudiente" text="Agregar" />
-                    <Button fx:id="btnEditar" onAction="#editarAcudiente" text="Editar" />
-                    <Button fx:id="btnEliminar" onAction="#eliminarAcudiente" text="Eliminar" />
+                    <Button onAction="#actualizarDatos" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Actualizar" />
+                    <Button fx:id="btnAgregar" onAction="#agregarAcudiente" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Agregar" />
+                    <Button fx:id="btnEditar" onAction="#editarAcudiente" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Editar" />
+                    <Button fx:id="btnEliminar" onAction="#eliminarAcudiente" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Eliminar" />
                 </children>
             </HBox>
 
