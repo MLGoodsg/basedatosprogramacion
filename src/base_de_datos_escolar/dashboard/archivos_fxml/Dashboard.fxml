@@ -13,9 +13,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane prefHeight="641.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.DashboardController">
-    <Label layoutX="47.0" layoutY="14.0" style="-fx-font-size: 18px;" text="Bienvenido al Panel Principal" />
+   <Label layoutX="47.0" layoutY="14.0" style="-fx-font-size: 18px;" text="Bienvenido al Panel Principal" />
    <Pane fx:id="contadorEstudiantesPane" layoutX="444.0" layoutY="53.0" prefHeight="77.0" prefWidth="200.0" styleClass="contadorEstudiantes" stylesheets="@../estilo.css">
       <children>
          <Pane fx:id="contadorEstudianteLine" layoutX="-9.0" prefHeight="77.0" prefWidth="9.0" styleClass="contadorEstudianteLine" stylesheets="@../estilo.css" />
@@ -24,7 +26,6 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-
          <Separator layoutX="79.0" layoutY="5.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
          <Label fx:id="cantidadEstudiantes" layoutX="93.0" layoutY="29.0" prefHeight="40.0" prefWidth="96.0">
             <font>
@@ -46,7 +47,6 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-
          <Separator layoutX="88.0" layoutY="6.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
          <Label fx:id="cantidadEscuela" layoutX="102.0" layoutY="33.0" prefHeight="40.0" prefWidth="108.0">
             <font>
@@ -68,7 +68,6 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-
          <Separator layoutX="85.0" layoutY="6.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
          <Label fx:id="cantidadMaestro" layoutX="98.0" layoutY="33.0" prefHeight="40.0" prefWidth="108.0">
             <font>
@@ -90,7 +89,6 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-         
          <Separator layoutX="79.0" layoutY="6.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="9.0" />
          <Label fx:id="cantidadPadres" layoutX="93.0" layoutY="32.0" prefHeight="40.0" prefWidth="96.0">
             <font>
@@ -169,7 +167,8 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-      </children></Pane>
+      </children>
+   </Pane>
    <Pane layoutX="161.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
       <children>
          <ImageView fx:id="segundolugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
@@ -178,7 +177,8 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-      </children></Pane>
+      </children>
+   </Pane>
    <Pane layoutX="304.0" layoutY="455.0" prefHeight="150.0" prefWidth="135.0" styleClass="primerosPuestos" stylesheets="@../estilo.css">
       <children>
          <ImageView fx:id="tercerlugarimg" fitHeight="85.0" fitWidth="85.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
@@ -187,7 +187,8 @@
                <Font name="Raleway Bold" size="14.0" />
             </font>
          </Label>
-      </children></Pane>
+      </children>
+   </Pane>
    <Separator layoutX="27.0" layoutY="139.0" prefHeight="3.0" prefWidth="811.0" />
    <Pane fx:id="fondoPane11" layoutX="330.0" layoutY="172.0" prefHeight="280.0" prefWidth="300.0" styleClass="fondoPane" stylesheets="@../estilo.css">
       <children>
@@ -206,5 +207,29 @@
          </Label>
       </children>
    </Pane>
-   <Hyperlink layoutX="996.0" layoutY="462.0" onAction="#borrarFiltro" text="Borrar filtro" />
+
+   <Hyperlink layoutX="996.0" layoutY="462.0" onAction="#reiniciarFiltros" text="Borrar filtro" />
+
+   <VBox layoutX="20" layoutY="400" spacing="25" alignment="TOP_CENTER">
+      <Label text="Estadísticas Visuales" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+      <VBox spacing="10" alignment="CENTER">
+         <Label text="Distribución por Género" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+         <PieChart fx:id="generoChart" prefWidth="400" prefHeight="300" />
+      </VBox>
+
+      <VBox spacing="10" alignment="CENTER">
+         <Label text="Estudiantes por Institución" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+         <BarChart fx:id="institucionChart" prefWidth="600" prefHeight="400">
+            <xAxis>
+               <CategoryAxis label="Institución" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis label="Cantidad" />
+            </yAxis>
+         </BarChart>
+      </VBox>
+
+   </VBox>
+
 </AnchorPane>
