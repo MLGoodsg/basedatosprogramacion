@@ -1,0 +1,222 @@
+/* Paleta de colores */
+/* #FFF1EB - Crema claro (fondo principal) */
+/* #B9D440 - Verde lima (campos de entrada) */
+/* #BC9BF3 - Púrpura claro (etiquetas) */
+/* #7360F9 - Azul púrpura (título y elementos destacados) */
+
+/* Contenedor principal del formulario */
+.form-container {
+    -fx-background-color: #FFF1EB;
+    -fx-padding: 40;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+    -fx-min-width: 500;
+    -fx-min-height: 600;
+}
+
+/* Título "Empleado" */
+.form-title {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7360F9;
+    -fx-font-family: "Prisma", "Segoe UI", Arial, sans-serif;
+    -fx-padding: 0 0 30 0;
+    -fx-alignment: center;
+}
+
+/* Contenedor para cada fila del formulario */
+.form-row {
+    -fx-spacing: 15;
+    -fx-alignment: center-left;
+    -fx-padding: 8 0;
+}
+
+/* Etiquetas de los campos */
+.form-label {
+    -fx-text-fill: #BC9BF3;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-width: 140;
+    -fx-max-width: 140;
+    -fx-alignment: center-right;
+}
+
+/* Campos de texto generales */
+.form-text-field {
+    -fx-background-color: #B9D440;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-min-width: 300;
+    -fx-max-width: 300;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-prompt-text-fill: derive(white, -20%);
+}
+
+.form-text-field:focused {
+    -fx-background-color: derive(#B9D440, -8%);
+    -fx-effect: dropshadow(gaussian, rgba(185, 212, 64, 0.4), 8, 0, 0, 2);
+}
+
+/* Campo de fecha con botón de calendario */
+.date-picker {
+    -fx-background-color: #B9D440;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-min-width: 300;
+    -fx-max-width: 300;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #B9D440;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-border-radius: 25 0 0 25;
+    -fx-background-radius: 25 0 0 25;
+    -fx-border-color: transparent;
+    -fx-prompt-text-fill: derive(white, -20%);
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: derive(#B9D440, -10%);
+    -fx-border-radius: 0 25 25 0;
+    -fx-background-radius: 0 25 25 0;
+    -fx-padding: 12 15;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+    -fx-shape: "M7 10l5 5 5-5z";
+    -fx-scale-shape: true;
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+}
+
+/* ComboBox (dropdowns) */
+.form-combo-box {
+    -fx-background-color: #B9D440;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-min-width: 300;
+    -fx-max-width: 300;
+}
+
+.form-combo-box .list-cell {
+    -fx-background-color: #B9D440;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-border-color: transparent;
+}
+
+.form-combo-box .arrow-button {
+    -fx-background-color: derive(#B9D440, -10%);
+    -fx-border-radius: 0 25 25 0;
+    -fx-background-radius: 0 25 25 0;
+    -fx-padding: 12 15;
+}
+
+.form-combo-box .arrow {
+    -fx-background-color: white;
+    -fx-shape: "M7 10l5 5 5-5z";
+    -fx-scale-shape: true;
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+}
+
+.form-combo-box:focused {
+    -fx-background-color: derive(#B9D440, -8%);
+    -fx-effect: dropshadow(gaussian, rgba(185, 212, 64, 0.4), 8, 0, 0, 2);
+}
+
+/* Contenedor de botones */
+.button-container {
+    -fx-spacing: 20;
+    -fx-alignment: center;
+    -fx-padding: 30 0 0 0;
+}
+
+/* Botón Guardar */
+.save-button {
+    -fx-background-color: #7360F9;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-min-width: 100;
+}
+
+.save-button:hover {
+    -fx-background-color: derive(#7360F9, -10%);
+    -fx-effect: dropshadow(gaussian, rgba(115, 96, 249, 0.4), 8, 0, 0, 2);
+}
+
+.save-button:pressed {
+    -fx-background-color: derive(#7360F9, -20%);
+}
+
+/* Botón Cancelar */
+.cancel-button {
+    -fx-background-color: #BC9BF3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-min-width: 100;
+}
+
+.cancel-button:hover {
+    -fx-background-color: derive(#BC9BF3, -10%);
+    -fx-effect: dropshadow(gaussian, rgba(188, 155, 243, 0.4), 8, 0, 0, 2);
+}
+
+.cancel-button:pressed {
+    -fx-background-color: derive(#BC9BF3, -20%);
+}
+
+/* Efectos generales */
+.form-container {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 15, 0, 0, 5);
+    -fx-background-radius: 15;
+}
+
+/* Estilos para el popup del ComboBox */
+.combo-box-popup .list-view {
+    -fx-background-color: #B9D440;
+    -fx-border-color: derive(#B9D440, -20%);
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #B9D440;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: derive(#B9D440, -15%);
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: derive(#B9D440, -25%);
+}
