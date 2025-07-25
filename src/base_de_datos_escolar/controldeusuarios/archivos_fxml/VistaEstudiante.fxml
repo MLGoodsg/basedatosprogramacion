@@ -60,7 +60,7 @@
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
         </VBox>
-        <Label layoutX="31.0" layoutY="22.0" stylesheets="@../../dashboard/ventanas.css" text="Estudiantes" textFill="#60f785">
+        <Label layoutX="31.0" layoutY="22.0" stylesheets="@../../dashboard/ventanas.css" text="Estudiantes" textFill="#7360f9">
             <font>
                 <Font size="36.0" />
             </font>

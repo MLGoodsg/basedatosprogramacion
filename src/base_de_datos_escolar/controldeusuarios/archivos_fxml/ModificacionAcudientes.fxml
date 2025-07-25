@@ -59,7 +59,7 @@
       </ImageView>
             <ComboBox fx:id="estudianteCombo" layoutX="307.0" layoutY="385.0" prefHeight="36.0" prefWidth="223.0" promptText="Seleccione el estudiante" />
           <TextField fx:id="telefonoField" layoutX="43.0" layoutY="329.0" prefHeight="25.0" prefWidth="223.0" promptText="Teléfono" />
-      <Label layoutX="41.0" layoutY="32.0" prefHeight="54.0" prefWidth="372.0" stylesheets="@../../dashboard/ventanas.css" text="Actualicación de acudientes" textFill="#7360f9">
+      <Label layoutX="41.0" layoutY="32.0" prefHeight="54.0" prefWidth="372.0" stylesheets="@../../dashboard/ventanas.css" text="Actualización del acudiente " textFill="#7360f9">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
