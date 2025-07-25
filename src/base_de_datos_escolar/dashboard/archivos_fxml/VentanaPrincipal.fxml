@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="331.0" prefWidth="489.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.VentanaPrincipalController">
+<VBox alignment="CENTER" prefHeight="331.0" prefWidth="489.0" spacing="10.0" styleClass="contadorPadres" stylesheets="@../panel%20de%20colores.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.VentanaPrincipalController">
 
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-   <TextArea prefHeight="154.0" prefWidth="443.0" text="•Su pantalla de inicio debe ser la página de presentación, &#10;donde pondrá nombre de la Universidad, Facultad &#10;(incluya ambos logos en imagen) carrera, grupo, &#10;nombre y cédula de los integrantes, nombre del profesor y fecha de entrega." />
-   <Label text="Menú Principal">
+   <TextArea prefHeight="209.0" prefWidth="449.0" styleClass="contadorEstudiantes" stylesheets="@../panel%20de%20colores.css" text="                           UNIVERSIDAD TECNOLÓGICA DE PANAMÁ &#10;               FACULTAD DE INGENIERÍA DE SISTEMAS COMPUTACIONALES&#10;                       DEPARTAMENTO DE INGENIERÍA DE SOFTWARE&#10;                         LICENCIATURA EN INGENIERÍA DE SOFTWARE&#10;.&#10;                                                 PROYECTO FINAL&#10;&#10;                                   PROGRAMACIÓN DE SOFTWARE I &#10;&#10;                                 LAVISHA MIRCHANDANI 8-1033-329&#10;                                       ASHLEY MARTINEZ 8-1025-583&#10;                                          ANGEL PAUL 3-757-161&#10;                                 MARIA LOURDES GOODS    8-918-1152&#10;&#10;&#10;                                     PROFESOR: RODRIGO YANGUEZ&#10;&#10;           &#10;                                                I SEMESTRE - 2025&#10;" />
+   <Label styleClass="fondoPane" stylesheets="@../panel%20de%20colores.css" text="Menú Principal">
       <font>
          <Font name="Raleway Bold" size="18.0" />
       </font>
    </Label>
 
-    <Button onAction="#irALogin" text="Iniciar Sesión" />
-    <Button onAction="#irARegistro" text="Registrarse" />
-    <Button onAction="#abrirRegistroInstitucion" text="Registrar Institución" />
+    <Button onAction="#irALogin" styleClass="contadorPadresLine" stylesheets="@../panel%20de%20colores.css" text="Iniciar Sesión" />
+    <Button onAction="#irARegistro" styleClass="contadorPadresLine" stylesheets="@../panel%20de%20colores.css" text="Registrarse" />
+    <Button onAction="#abrirRegistroInstitucion" styleClass="contadorPadresLine" stylesheets="@../panel%20de%20colores.css" text="Registrar Institución" />
 
 </VBox>
