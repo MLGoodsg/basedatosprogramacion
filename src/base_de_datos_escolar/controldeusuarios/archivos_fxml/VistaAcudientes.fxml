@@ -13,10 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1377.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
+<AnchorPane prefHeight="600.0" prefWidth="1377.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
     <children>
         <!-- Título -->
-        <Label layoutX="31.0" layoutY="22.0" text="Acudientes">
+        <Label layoutX="31.0" layoutY="22.0" text="Acudientes" textFill="#c0e30b">
             <font>
                 <Font name="Raleway Bold" size="36.0" />
             </font>
@@ -26,29 +26,29 @@
             <!-- Barra de herramientas -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <children>
-               <Label prefHeight="20.0" prefWidth="165.0" text="Filtrar por Institución">
+               <Label prefHeight="20.0" prefWidth="165.0" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Filtrar por Institución">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-                    <ComboBox fx:id="comboInstituciones" prefWidth="200.0" />
+                    <ComboBox fx:id="comboInstituciones" prefWidth="200.0" promptText="Instituciónes" styleClass="contadorEscuela" stylesheets="@../../dashboard/panel%20de%20colores.css" />
                <Region prefHeight="25.0" prefWidth="36.0" />
-               <Label prefHeight="20.0" prefWidth="70.0" text="Buscar:">
+               <Label prefHeight="20.0" prefWidth="70.0" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Buscar:">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-                    <TextField fx:id="txtBuscar" prefWidth="200.0" promptText="Buscar..." />
+                    <TextField fx:id="txtBuscar" prefWidth="200.0" promptText="Buscar..." styleClass="contadorEstudiantes" stylesheets="@../../dashboard/panel%20de%20colores.css" />
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button onAction="#actualizarDatos" text="Actualizar" />
-                    <Button fx:id="btnAgregar" onAction="#agregarAcudiente" text="Agregar" />
-                    <Button fx:id="btnEditar" onAction="#editarAcudiente" text="Editar" />
-                    <Button fx:id="btnEliminar" onAction="#eliminarAcudiente" text="Eliminar" />
+                    <Button onAction="#actualizarDatos" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Actualizar" />
+                    <Button fx:id="btnAgregar" onAction="#agregarAcudiente" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Agregar" />
+                    <Button fx:id="btnEditar" onAction="#editarAcudiente" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Editar" />
+                    <Button fx:id="btnEliminar" onAction="#eliminarAcudiente" styleClass="dashboard_button" stylesheets="@../../dashboard/panel%20de%20colores.css" text="Eliminar" />
                 </children>
             </HBox>
 
             <!-- Tabla de Acudientes -->
-            <TableView fx:id="tableViewAcudientes" prefHeight="235.0" prefWidth="1078.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tableViewAcudientes" prefHeight="235.0" prefWidth="1078.0" styleClass="contadorPadresLine" stylesheets="@../../dashboard/panel%20de%20colores.css" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
                     <TableColumn fx:id="colNombre" prefWidth="120.0" text="Nombre" />

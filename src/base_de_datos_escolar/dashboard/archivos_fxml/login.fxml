@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="281.0" prefWidth="469.0" styleClass="combo-box" stylesheets="@../panel%20de%20colores.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
     <children>
-        <Label layoutX="126.0" layoutY="-18.0" prefHeight="97.0" prefWidth="431.0" text="Iniciar Sesión" textFill="#6810e46e">
+        <Label layoutX="126.0" layoutY="-18.0" prefHeight="97.0" prefWidth="431.0" styleClass="arrow-button" stylesheets="@../panel%20de%20colores.css" text="Iniciar Sesión" textFill="#6810e46e">
          <font>
              <Font size="48.0" />
          </font></Label>
@@ -22,6 +22,6 @@
          </font></Button>
         <Hyperlink layoutX="184.0" layoutY="217.0" onAction="#irARegistro" text="¿No tienes cuenta? Regístrate" />
       <Label layoutX="117.0" layoutY="79.0" styleClass="arrow-button" text="Nombre de usuario" textFill="#3aeb0e" />
-        <Label layoutX="117.0" layoutY="115.0" prefHeight="17.0" prefWidth="103.0" text="Contraseña" textFill="#4ad424" />
+        <Label layoutX="117.0" layoutY="115.0" prefHeight="17.0" prefWidth="103.0" styleClass="arrow-button" stylesheets="@../panel%20de%20colores.css" text="Contraseña" textFill="#4ad424" />
     </children>
 </AnchorPane>
