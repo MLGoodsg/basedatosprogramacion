@@ -8,20 +8,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="281.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
+<AnchorPane prefHeight="281.0" prefWidth="469.0" styleClass="combo-box" stylesheets="@../panel%20de%20colores.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.dashboard.clasesController.LoginController">
     <children>
-        <Label layoutX="91.0" layoutY="-1.0" prefHeight="97.0" prefWidth="186.0" text="Iniciar Sesión" textFill="#f04fb1">
+        <Label layoutX="126.0" layoutY="-18.0" prefHeight="97.0" prefWidth="431.0" text="Iniciar Sesión" textFill="#6810e46e">
          <font>
              <Font size="48.0" />
          </font></Label>
-        <TextField fx:id="txtUsuario" layoutX="155.0" layoutY="73.0" promptText="Usuario" />
-        <PasswordField fx:id="txtContrasenia" layoutX="154.0" layoutY="119.0" promptText="Contraseña" />
-        <Button layoutX="125.0" layoutY="163.0" onAction="#iniciarSesion" prefHeight="39.0" prefWidth="85.0" text="Ingresar">
+        <TextField fx:id="txtUsuario" layoutX="266.0" layoutY="74.0" promptText="Usuario" styleClass="fondoPane" />
+        <PasswordField fx:id="txtContrasenia" layoutX="266.0" layoutY="110.0" promptText="Contraseña" styleClass="fondoPane" />
+        <Button layoutX="224.0" layoutY="162.0" onAction="#iniciarSesion" prefHeight="39.0" prefWidth="85.0" text="Ingresar">
          <font>
             <Font name="Raleway Regular" size="14.0" />
          </font></Button>
-        <Hyperlink layoutX="85.0" layoutY="218.0" onAction="#irARegistro" text="¿No tienes cuenta? Regístrate" />
-      <Label layoutX="42.0" layoutY="77.0" text="Nombre de usuario" textFill="#0abedd" />
-        <Label layoutX="42.0" layoutY="123.0" prefHeight="17.0" prefWidth="103.0" text="Contraseña" textFill="#4ad424" />
+        <Hyperlink layoutX="184.0" layoutY="217.0" onAction="#irARegistro" text="¿No tienes cuenta? Regístrate" />
+      <Label layoutX="117.0" layoutY="79.0" styleClass="arrow-button" text="Nombre de usuario" textFill="#3aeb0e" />
+        <Label layoutX="117.0" layoutY="115.0" prefHeight="17.0" prefWidth="103.0" text="Contraseña" textFill="#4ad424" />
     </children>
 </AnchorPane>
