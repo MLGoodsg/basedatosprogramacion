@@ -51,7 +51,7 @@
       </font></Label>
     <ComboBox fx:id="comboNivelEducativo" prefHeight="44.0" prefWidth="246.0" promptText="Seleccione nivel educativo" />
 
-    <Label text="Provincia:" textFill="#7360f9">
+    <Label text="Provincia:" textFill="#60f0f7">
       <font>
          <Font size="36.0" />
       </font></Label>
