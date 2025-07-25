@@ -165,7 +165,16 @@ public class MateriaHorarioController implements Initializable {
 
     private void cargarBachillerato(String curso) {
         cbBachillerato.getItems().clear();
-        if ((curso == null) || ((cbCurso.getValue().equals("7°")) || (cbCurso.getValue().equals("8°")) || (cbCurso.getValue().equals("9°")))) {
+        if ((curso == null) || (
+                (cbCurso.getValue().equals("1°")) ||
+                        (cbCurso.getValue().equals("2°")) ||
+                        (cbCurso.getValue().equals("3°")) ||
+                        (cbCurso.getValue().equals("4°")) ||
+                        (cbCurso.getValue().equals("5°")) ||
+                        (cbCurso.getValue().equals("6°")) ||
+                        (cbCurso.getValue().equals("7°")) ||
+                        (cbCurso.getValue().equals("8°")) ||
+                        (cbCurso.getValue().equals("9°")))) {
             cbBachillerato.setDisable(true);
         } else {
             cbBachillerato.setDisable(false);
@@ -272,7 +281,7 @@ public class MateriaHorarioController implements Initializable {
             cargarHorarios();
             limpiarCampos();
         } catch (SQLException e) {
-            mostrarAlerta("Error", "No se pudo agregar el horario" + e.getMessage(), Alert.AlertType.ERROR);
+            mostrarAlerta("Error", "No se pudo agregar el horario", Alert.AlertType.ERROR);
         }
     }
 
