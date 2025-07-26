@@ -11,7 +11,7 @@ Universidad Tecnológica de Panamá — Facultad de Ingeniería de Software
 ## 🧠 ¿Qué es LexyCo?
 
 LexyCo es una aplicación enfocada en digitalizar y optimizar procesos administrativos dentro de instituciones educativas. Está diseñada pensando en la escalabilidad, con posibilidad de expansión hacia módulos académicos y estudiantiles en futuras versiones.
-Actualmente en etapa beta, el sistema incluye funcionalidades centrales para el área administrativa como gestión de usuarios, control de acceso, y conexión a base de datos segura.
+Actualmente en etapa de desarrollo, el sistema incluye funcionalidades centrales para el área administrativa como gestión de usuarios, control de acceso, y conexión a base de datos.
 
 ---
 
