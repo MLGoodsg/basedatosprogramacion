@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo-lexyco.png" alt="LexyCo Logo" width="200"/>
+  <img src="src/base_de_datos_escolar/dashboard/imagenes/logo.jpg" alt="LexyCo Logo" width="200"/>
 </p>
 
 # 📚 LexyCo — Sistema de Gestión Educativa
