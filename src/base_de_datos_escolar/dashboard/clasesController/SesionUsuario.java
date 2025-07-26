@@ -7,7 +7,8 @@ public class SesionUsuario {
     public static boolean usuarioActivo=false;
     public static String tipoUsuario;
     public static String ventanaActual="";
-  //Guarda la información del usuario que ha iniciado sesion.
+  /*Guarda la información del usuario que ha iniciado sesion para poder usar su información
+  en otras ventanas.*/
 
 
     public static String getVentanaActual() {

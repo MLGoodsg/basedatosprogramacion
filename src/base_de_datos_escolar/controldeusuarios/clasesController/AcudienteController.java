@@ -48,16 +48,15 @@ public class AcudienteController implements Initializable {
         colParentesco.setCellValueFactory(new PropertyValueFactory<>("parentesco"));
         colAcudido.setCellValueFactory(new PropertyValueFactory<>("nombreEstudiante"));
 
-        // Inicializar lista y tabla
         listaAcudientes = FXCollections.observableArrayList();
         tableViewAcudientes.setItems(listaAcudientes);
 
-        // Configurar búsqueda
+        //filtro de búsqueda
         txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
             buscarAcudientes(newValue);
         });
 
-        // Configurar el listener del combobox de instituciones
+        // listeners del combobox de instituciones
         comboInstituciones.setOnAction(event -> {
             String institucionSeleccionada = comboInstituciones.getValue();
             if (institucionSeleccionada != null) {
@@ -65,7 +64,6 @@ public class AcudienteController implements Initializable {
             }
         });
 
-        // Cargar datos iniciales
         cargarInstituciones();
         cargarDatos();
     }

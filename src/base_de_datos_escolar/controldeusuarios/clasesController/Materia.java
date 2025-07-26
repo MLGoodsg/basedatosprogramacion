@@ -8,11 +8,10 @@ public class Materia {
     private String area;
     private String especialidad;
 
-    // Constructor vacío
+
     public Materia() {
     }
 
-    // Constructor completo
     public Materia(int id, String nombre, String curso, int horasClase, String area, String especialidad) {
         this.id = id;
         this.nombre = nombre;
@@ -22,7 +21,6 @@ public class Materia {
         this.especialidad = especialidad;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }

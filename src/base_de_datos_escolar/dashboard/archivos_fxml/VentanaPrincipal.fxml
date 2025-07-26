@@ -10,7 +10,7 @@
             fx:controller="base_de_datos_escolar.dashboard.clasesController.VentanaPrincipalController">
 
     <children>
-        <!-- Texto principal -->
+
         <Label layoutX="61.0" layoutY="91.0" prefHeight="365.0" prefWidth="452.0"
                text="UNIVERSIDAD TECNOLÓGICA DE PANAMÁ&#10;&#10;FACULTAD DE INGENIERÍA DE SISTEMAS COMPUTACIONALES&#10;DEPARTAMENTO DE INGENIERÍA DE SOFTWARE&#10;LICENCIATURA EN INGENIERÍA DE SOFTWARE.&#10;&#10;PROYECTO FINAL&#10;PROGRAMACIÓN DE SOFTWARE I&#10;&#10;LAVISHA MIRCHANDANI          8-1033-329&#10;ASHLEY MARTINEZ                    8-1025-583&#10;ANGEL PAUL                                 3-757-161&#10;MARIA LOURDES GOODS          8-918-1152&#10;&#10;PROFESOR: RODRIGO YANGUEZ&#10;&#10;I SEMESTRE - 2025&#10;"
                textAlignment="CENTER">
@@ -19,14 +19,14 @@
             </font>
         </Label>
 
-        <!-- Título del menú -->
+
         <Label layoutX="586.0" layoutY="51.0" styleClass="fondoPane" text="Bienvenido">
             <font>
                 <Font size="24.0"/>
             </font>
         </Label>
 
-        <!-- Botones -->
+
         <Button layoutX="585.0" layoutY="117.0" onAction="#irALogin" prefHeight="38.0" prefWidth="121.0"
                 styleClass="contadorPadresLine" text="Iniciar Sesión"/>
         <Button layoutX="585.0" layoutY="177.0" onAction="#irARegistro" prefHeight="38.0" prefWidth="121.0"

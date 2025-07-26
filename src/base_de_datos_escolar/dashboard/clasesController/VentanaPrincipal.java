@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class VentanaPrincipal extends Application {
 
-    @Override
+
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/base_de_datos_escolar/dashboard/archivos_fxml/VentanaPrincipal.fxml")); // ← sin barra y en misma carpeta
         primaryStage.setTitle("Sistema Escolar");

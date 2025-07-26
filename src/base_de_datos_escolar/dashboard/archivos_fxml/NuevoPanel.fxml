@@ -3,70 +3,94 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
-<HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="hbox_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="641.0" prefWidth="1080.0" stylesheets="@../estilo.css"
-      xmlns="http://javafx.com/javafx/24.0.1" fx:controller="base_de_datos_escolar.dashboard.clasesController.NuevoPanel">
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="hbox_panel" prefHeight="641.0" prefWidth="1080.0"
+      stylesheets="@../estilo.css" xmlns="http://javafx.com/javafx/24.0.1"
+      fx:controller="base_de_datos_escolar.dashboard.clasesController.NuevoPanel">
+
    <children>
-      <VBox fx:id="vbox_pane" prefHeight="400.0" prefWidth="162.0" styleClass="vbox_pane">
+
+      <VBox fx:id="vbox_pane" prefWidth="217.0" styleClass="vbox_pane">
          <children>
             <AnchorPane fx:id="side_anchorpane" prefHeight="641.0" prefWidth="217.0" styleClass="side_anchorpane">
                <children>
-                  <Button fx:id="dashboard_button" layoutX="44.0" layoutY="99.0" mnemonicParsing="false"
+
+                  <Button fx:id="dashboard_button" layoutX="40.0" layoutY="100.0" mnemonicParsing="false"
                           onAction="#dashboardClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button"
-                          stylesheets="@../estilo.css" text="Panel de control" textFill="WHITE"
-                          AnchorPane.rightAnchor="0.0">
+                          text="Panel de Control" textFill="WHITE">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="estudiantes_button" layoutX="20.0" layoutY="168.0" mnemonicParsing="false"
+
+                  <Button fx:id="estudiantes_button" layoutX="40.0" layoutY="160.0" mnemonicParsing="false"
                           onAction="#estudiantebuttonClick" prefHeight="32.0" prefWidth="140.0"
-                          styleClass="dashboard_button" stylesheets="@../estilo.css" text="Estudiantes" textFill="WHITE"
-                          AnchorPane.rightAnchor="2.0">
+                          styleClass="dashboard_button" text="Estudiantes" textFill="WHITE">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="maestros_button" layoutX="20.0" layoutY="233.0" mnemonicParsing="false"
-                          onAction="#maestrobuttonClick" prefHeight="32.0" prefWidth="140.0"
-                          styleClass="dashboard_button" stylesheets="@../estilo.css" text="Maestros" textFill="WHITE"
-                          AnchorPane.rightAnchor="2.0">
+
+                  <Button fx:id="btnEmpleados" layoutX="40.0" layoutY="220.0" mnemonicParsing="false"
+                          onAction="#empleadosClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button"
+                          text="Maestros" textFill="WHITE">
                      <font>
                         <Font name="Raleway Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblNombreUsuario" layoutX="56.0" layoutY="542.0" text="Label">
+
+                  <Button fx:id="btnAcudientes" layoutX="40.0" layoutY="280.0" mnemonicParsing="false"
+                          onAction="#acudientesClick" prefHeight="32.0" prefWidth="140.0" styleClass="dashboard_button"
+                          text="Acudientes" textFill="WHITE">
+                     <font>
+                        <Font name="Raleway Bold" size="13.0"/>
+                     </font>
+                  </Button>
+
+
+                  <ImageView fx:id="imgFotoUsuario" fitHeight="80.0" fitWidth="80.0" layoutX="68.0" layoutY="460.0"
+                             pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/iconoPerfil.png" />
+                     </image>
+                  </ImageView>
+
+                  <Label fx:id="lblNombreUsuario" layoutX="50.0" layoutY="550.0" text="Usuario">
                      <font>
                         <Font name="System Bold" size="14.0"/>
                      </font>
                   </Label>
-                  <ImageView fx:id="imgFotoUsuario" fitHeight="79.0" fitWidth="62.0" layoutX="56.0" layoutY="460.0"
-                             pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagenes/iconoPerfil.png" />
-                     </image></ImageView>
-                  <Button fx:id="btnControldeusuarios" layoutX="29.0" layoutY="386.0" mnemonicParsing="false"
-                          onAction="#botonControldeusuario" styleClass="dashboard_button" stylesheets="@../estilo.css"
-                          text="Control de Usuarios" textFill="WHITE"/>
-                  <Button fx:id="btnCerrarSesion" layoutX="36.0" layoutY="583.0" mnemonicParsing="false"
-                          onAction="#cerrarSesion" styleClass="dashboard_buttonCambio" stylesheets="@../estilo.css"
-                          text="Cerrar Sesion" textFill="#f6f6f6">
+
+
+                  <Button fx:id="btnCerrarSesion" layoutX="40.0" layoutY="600.0" mnemonicParsing="false"
+                          onAction="#cerrarSesion" styleClass="dashboard_buttonCambio" text="Cerrar Sesión"
+                          textFill="#f6f6f6">
                      <font>
                         <Font name="System Bold" size="12.0"/>
                      </font>
                   </Button>
+                  <Button fx:id="btnMateriayHorario" layoutX="40.0" layoutY="340.0" mnemonicParsing="false"
+                          onAction="#materiayhorarioClick" prefHeight="32.0" prefWidth="140.0"
+                          styleClass="dashboard_button" text="Materias y Horario" textFill="WHITE">
+                     <font>
+                        <Font name="Raleway Bold" size="13.0"/>
+                     </font>
+                  </Button>
                </children>
+
+
                <stylesheets>
-                  <URL value="@../panel%20de%20colores.css"/>
                   <URL value="@../paneldecolores.css"/>
                </stylesheets>
             </AnchorPane>
          </children>
       </VBox>
-      <AnchorPane fx:id="central_pane" prefHeight="641.0" prefWidth="917.0" />
 
+
+      <AnchorPane fx:id="central_pane" prefHeight="641.0" prefWidth="863.0"/>
    </children>
 </HBox>

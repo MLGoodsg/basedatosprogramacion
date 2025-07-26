@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="562.0" prefWidth="1376.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="562.0" prefWidth="1376.0" styleClass="anchopanefondo"
+            stylesheets="@../../dashboard/estilo.css" xmlns="http://javafx.com/javafx/24.0.1"
+            fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.AcudienteController">
 
     <children>
-        <!-- Título -->
-        <Label layoutX="31.0" layoutY="22.0" text="Acudientes" textFill="#c0e30b">
+
+        <Label layoutX="31.0" layoutY="22.0" text="Acudientes" textFill="#7360f9">
             <font>
                 <Font name="Raleway Bold" size="36.0" />
             </font>
         </Label>
 
         <VBox layoutX="14.0" layoutY="75.0" prefHeight="472.0" prefWidth="1078.0" spacing="10.0" AnchorPane.bottomAnchor="93.66666666666663" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="325.33333333333326" AnchorPane.topAnchor="75.0">
-            <!-- Barra de herramientas -->
+
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <children>
                     <Label prefHeight="20.0" prefWidth="165.0" styleClass="dashboard_button"
@@ -66,7 +67,6 @@
             </TableView>
         </VBox>
 
-        <!-- Label oculto para ID de usuario -->
         <Label fx:id="lblIdUsuario" visible="false" />
     </children>
     <padding>

@@ -41,6 +41,7 @@ public class EstudianteController implements Initializable {
     private Connection conexion;
 
     public void initialize(URL location, ResourceBundle resources) {
+
         configurarColumnas();
         conectarBD();
         cargarInstituciones();
@@ -304,6 +305,34 @@ public class EstudianteController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
             mostrarAlerta("Error", "No se pudo abrir el formulario de registro.", Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    private void abrirRegistroAcademico() {
+        Estudiante seleccionado = tableViewEstudiantes.getSelectionModel().getSelectedItem();
+
+        if (seleccionado == null) {
+            mostrarAlerta("Selección requerida", "Debe seleccionar un estudiante para ver su registro académico.", Alert.AlertType.WARNING);
+            return;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/base_de_datos_escolar/controldeusuarios/archivos_fxml/RegistroAcademico.fxml"));
+            Parent root = loader.load();
+
+            RegistroAcademicoController controlador = loader.getController();
+            controlador.setEstudiante(seleccionado);
+
+            Stage stage = new Stage();
+            stage.setTitle("Registro Académico");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(tableViewEstudiantes.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            mostrarAlerta("Error", "No se pudo abrir la vista de registro académico.", Alert.AlertType.ERROR);
         }
     }
 

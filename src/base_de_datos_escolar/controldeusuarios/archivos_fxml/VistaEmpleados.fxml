@@ -10,19 +10,18 @@
             fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.EmpleadoController">
 
     <children>
-        <!-- Título -->
+
         <Label layoutX="24.0" layoutY="29.0" text="Empleados" textFill="#7360f9">
             <font>
                 <Font name="Raleway Bold" size="36.0" />
             </font>
         </Label>
 
-        <!-- Contenedor principal -->
         <VBox layoutX="14.0" layoutY="83.0" prefHeight="320.0" prefWidth="970.0" spacing="10.0"
               AnchorPane.bottomAnchor="217.66666666666663" AnchorPane.leftAnchor="14.0"
               AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="83.0">
 
-            <!-- Barra de herramientas -->
+
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <children>
                     <Label prefHeight="20.0" prefWidth="157.0" styleClass="dashboard_button"
@@ -57,7 +56,7 @@
                 </children>
             </HBox>
 
-            <!-- Tabla de Empleados -->
+
             <TableView fx:id="tableViewEmpleados" prefHeight="395.0" prefWidth="1269.0"
                        styleClass="contadorPadresLine" VBox.vgrow="ALWAYS">
                 <columns>
@@ -77,10 +76,10 @@
             </TableView>
         </VBox>
 
-        <!-- Label oculto para ID de usuario -->
+
         <Label fx:id="lblIdUsuario" visible="false" />
 
-        <!-- Botones -->
+
         <Button layoutX="24.0" layoutY="396.0" onAction="#actualizarDatos" styleClass="dashboard_button"
                 text="Actualizar"/>
         <Button fx:id="btnAgregar" layoutX="108.0" layoutY="396.0" onAction="#agregarEmpleado"

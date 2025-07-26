@@ -2,8 +2,11 @@ package base_de_datos_escolar.controldeusuarios.clasesController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -35,14 +38,14 @@ public class ModificadorAcudienteController implements Initializable {
         conectarBD();
         cargarEstudiantes();
 
-        // Validador para permitir solo números en el campo de salario
+
         salarioField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*(\\.\\d*)?")) {
                 salarioField.setText(oldValue);
             }
         });
 
-        // Validador para permitir solo números en el campo de teléfono
+
         telefonoField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 telefonoField.setText(oldValue);

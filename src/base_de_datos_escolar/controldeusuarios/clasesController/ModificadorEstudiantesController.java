@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
 import java.net.URL;
 import java.sql.*;
 import java.util.HashMap;
@@ -31,13 +32,12 @@ public class ModificadorEstudiantesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Configuración inicial
+
         tipoUsuarioBox.setValue("Estudiante");
         tipoUsuarioBox.setDisable(true); // No permitir cambiar el tipo de usuario
         campoSexo.getItems().addAll("M", "F");
 
 
-        // Deshabilitar campos que no deberían modificarse
         usuarioField.setDisable(true);
         contraseniaField.setDisable(true);
         

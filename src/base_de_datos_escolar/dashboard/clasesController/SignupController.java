@@ -43,12 +43,12 @@ public class SignupController implements Initializable {
 
     private File archivoImagenSeleccionada;
 
-    // Estudiante
+
     @FXML private DatePicker campoFechaNacimiento;
     @FXML private TextField campoDireccion;
     @FXML private ComboBox<String> campoSexo;
 
-    // Acudiente
+
     @FXML private TextField telefonoAcudiente;
     @FXML private TextField correoAcudiente;
     @FXML private ComboBox<String> parentescoAcudiente;
@@ -225,19 +225,18 @@ public class SignupController implements Initializable {
             return;
         }
 
-        //Validaciones
+        //Validaciones de entradas
         if (!nombre.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$") || !apellido.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$")) {
             mostrarAlerta("Error", "El nombre y apellido solo pueden contener letras.", Alert.AlertType.WARNING);
             return;
         }
 
-        // Cedula
         if (!cedula.matches("^[A-Z0-9-]{1,12}$")) {
             mostrarAlerta("Error", "La cédula solo puede contener letras mayúsculas, números y guiones (máximo 12 caracteres).", Alert.AlertType.WARNING);
             return;
         }
 
-        // Contraseña
+
         if (!contrasenia.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
             mostrarAlerta("Error", "La contraseña debe tener al menos 8 caracteres, 1 letra, 1 número y 1 carácter especial.", Alert.AlertType.WARNING);
             return;
@@ -307,7 +306,7 @@ public class SignupController implements Initializable {
 
             conn.commit();
             mostrarAlerta("Éxito", "Estudiante registrado correctamente", Alert.AlertType.INFORMATION);
-            irAlLogin(null);
+
         } catch (SQLException e) {
             mostrarAlerta("Error", "No se pudo registrar el estudiante: " + e.getMessage(), Alert.AlertType.ERROR);
         }

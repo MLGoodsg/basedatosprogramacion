@@ -1,0 +1,21 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+            fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.RegistroAcademicoController"
+            prefWidth="800" prefHeight="600">
+
+    <Label fx:id="lblNombre" layoutX="20" layoutY="20" style="-fx-font-size: 18px;"/>
+    <Label fx:id="lblCurso" layoutX="20" layoutY="60"/>
+    <Label fx:id="lblPromedio" layoutX="20" layoutY="90"/>
+    <Label fx:id="lblAsistencia" layoutX="20" layoutY="120"/>
+    <Label fx:id="lblReportes" layoutX="20" layoutY="150"/>
+
+    <TableView fx:id="tableCalificaciones" layoutX="20" layoutY="200" prefWidth="740" prefHeight="350">
+        <columns>
+            <TableColumn fx:id="colMateria" text="Materia" prefWidth="200"/>
+            <TableColumn fx:id="colNota" text="Nota" prefWidth="100"/>
+            <TableColumn fx:id="colTipo" text="Tipo Asignación" prefWidth="200"/>
+            <TableColumn fx:id="colPorcentaje" text="%" prefWidth="100"/>
+        </columns>
+    </TableView>
+</AnchorPane>

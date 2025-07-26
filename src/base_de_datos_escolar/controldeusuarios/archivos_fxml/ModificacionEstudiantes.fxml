@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="609.0" prefWidth="719.0" styleClass="circular-image"
-            xmlns="http://javafx.com/javafx/23.0.1"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="609.0" prefWidth="719.0" styleClass="anchopanefondo"
+            stylesheets="@../../dashboard/estilo.css" xmlns="http://javafx.com/javafx/17.0.12"
             fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorEstudiantesController">
 
    <children>
-      <Label layoutX="52.0" layoutY="34.0" text="Actualización de datos">
+      <Label layoutX="242.0" layoutY="14.0" text="Actualización de datos">
          <font>
             <Font name="Raleway Bold" size="24.0" />
          </font>
       </Label>
 
-      <!-- Campos comunes -->
+
       <ComboBox fx:id="tipoUsuarioBox" layoutX="69.0" layoutY="112.0" prefHeight="25.0" prefWidth="223.0"
                 promptText="Tipo de Usuario" styleClass="dashboard_button"/>
       <ComboBox fx:id="comboInstitucion" layoutX="69.0" layoutY="151.0" prefHeight="25.0" prefWidth="223.0"
@@ -53,7 +52,6 @@
             <Image url="@../../dashboard/imagenes/iconoPerfil.png" />
          </image></ImageView>
 
-      <!-- Botón de modificación -->
 
       <Button layoutX="291.0" layoutY="491.0" mnemonicParsing="false" onAction="#modificarUsuario" prefHeight="40.0"
               prefWidth="137.0" styleClass="contadorEstudianteLine" text="Modificar Usuario"/>

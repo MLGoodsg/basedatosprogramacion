@@ -37,6 +37,16 @@
     -fx-alignment: CENTER_LEFT;
 }
 
+.anchopanefondo {
+    -fx-background-color: #FFFFFF;
+
+}
+
+.anchopanefondo2 {
+    -fx-background-color: #FFF1EBFF;
+
+}
+
 
 .dashboard_buttonCambio {
     -fx-background-color: #05a7e2;
@@ -131,7 +141,7 @@
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-padding: 2;
-    -fx-border-color: #48d0e8;
+    -fx-border-color: #7360F9FF;
     -fx-background-color: #FFFFFF;
 }
 
@@ -151,13 +161,13 @@
 .fondoPane{
     -fx-border-radius: 15 15 15 15;
     -fx-background-radius: 15 15 15 15;
-    -fx-border-color: #48d0e8;
+    -fx-border-color: #7360F9FF;
     -fx-background-color: #FFFFFF;
 }
 .graficaPane{
     -fx-border-radius: 15 15 15 15;
     -fx-background-radius: 15 15 15 15;
-    -fx-border-color: #48d0e8;
+    -fx-border-color: #7360F9FF;
     -fx-background-color: #FFFFFF;
 }
 .primerosPuestos{

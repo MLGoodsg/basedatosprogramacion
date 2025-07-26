@@ -4,13 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="481.0" prefWidth="644.0" stylesheets="@../../dashboard/ventanas.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorAcudienteController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="481.0" prefWidth="644.0"
+            stylesheets="@../../dashboard/ventanas.css" xmlns="http://javafx.com/javafx/17.0.12"
+            fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.ModificadorAcudienteController">
     <children>
 
-        <!-- Columna Izquierda -->
         <VBox layoutX="43.0" layoutY="105.0" spacing="20">
             <children>
-                <!-- Información Personal -->
+
                 <TextField fx:id="nombreField" prefHeight="25.0" prefWidth="223.0" promptText="Nombre" />
                 <TextField fx:id="apellidoField" prefHeight="25.0" prefWidth="223.0" promptText="Apellido" />
                 <TextField fx:id="cedulaField" prefHeight="25.0" prefWidth="223.0" promptText="Cédula" />
@@ -20,7 +21,7 @@
             </children>
         </VBox>
 
-        <!-- Columna Derecha -->
+
         <VBox layoutX="307.0" layoutY="105.0" spacing="20">
             <children>
                 <ComboBox fx:id="sexoCombo" prefHeight="25.0" prefWidth="223.0" promptText="Sexo" />
@@ -31,18 +32,19 @@
             </children>
         </VBox>
 
-        <!-- Sección inferior -->
+
         <VBox layoutX="69.0" layoutY="350.0" spacing="20">
             <children>
-                <!-- Selección de Estudiante -->
-                <HBox spacing="10" />
+
+            <HBox spacing="10" />
             </children>
         </VBox>
 
-        <!-- Botón de modificación -->
-        <Button layoutX="238.0" layoutY="465.0" mnemonicParsing="false" onAction="#modificarAcudiente" prefHeight="40.0" prefWidth="137.0" text="Modificar Acudiente">
+
+        <Button layoutX="182.0" layoutY="465.0" mnemonicParsing="false" onAction="#modificarAcudiente" prefHeight="40.0"
+                prefWidth="181.0" text="Modificar Acudiente">
          <font>
-            <Font size="36.0" />
+             <Font size="14.0"/>
          </font></Button>
 
         <ComboBox fx:id="estudianteCombo" layoutX="307.0" layoutY="385.0" prefHeight="36.0" prefWidth="223.0" promptText="Seleccione el estudiante" />

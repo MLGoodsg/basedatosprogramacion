@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="1053.0"
-            xmlns="http://javafx.com/javafx/24.0.1"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="1053.0" styleClass="anchopanefondo"
+            stylesheets="@../../dashboard/estilo.css" xmlns="http://javafx.com/javafx/17.0.12"
             fx:controller="base_de_datos_escolar.controldeusuarios.clasesController.MateriaHorarioController">
 
     <HBox layoutX="-9.0" layoutY="25.0" prefHeight="325.0" prefWidth="1225.0" spacing="10">
@@ -97,7 +97,7 @@
         </VBox>
     </HBox>
 
-    <Label layoutX="20.0" layoutY="10.0" text="Gestión de Horarios">
+    <Label layoutX="20.0" layoutY="10.0" text="Gestión de Horarios" textFill="#7360f9">
         <font>
             <Font size="24"/>
         </font>

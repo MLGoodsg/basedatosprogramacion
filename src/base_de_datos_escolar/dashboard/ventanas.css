@@ -1,12 +1,4 @@
-/* Paleta de colores mapeada a propiedades -fx- */
-/* Nota: Las variables CSS de :root no son soportadas directamente como en CSS web.
-   Aplicamos los colores directamente a los elementos o clases. */
 
-/* Definición de colores (para referencia, no variables CSS de JavaFX) */
-/* --dark-blue: #7360F9; */
-/* --medium-purple: #BC9BF3; */
-/* --lightest-peach: #FFF1EB; */
-/* --white-text: #FFFFFF; */
 
 /* Nuevo verde más claro (aclarando #B9D440) - Manteniendo el mismo tono aclarado del request anterior */
 .light-green-clarified {

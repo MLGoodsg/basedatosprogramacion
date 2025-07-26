@@ -2,7 +2,7 @@ package base_de_datos_escolar.dashboard.clasesController;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Side;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
@@ -19,11 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javafx.fxml.FXML;
-
 public class DashboardController {
 
-    //<editor-fold desc="FXML Declarations">
+
     @FXML private Label cantidadEscuela;
     @FXML private Label cantidadMaestro;
     @FXML private Label cantidadEstudiantes;
@@ -41,7 +39,7 @@ public class DashboardController {
     @FXML private BarChart<String, Number> graficaPaneAsistencia;
     @FXML private ComboBox<String> cmbAnioacademico;
     @FXML private ComboBox<String> cmbSeccion;
-    //</editor-fold>
+
 
     private final Map<String, Integer> provinciasMap = new TreeMap<>();
     private final Map<String, Integer> distritosMap = new TreeMap<>();
@@ -51,7 +49,7 @@ public class DashboardController {
     @FXML
     public void initialize() {
         configurarFiltros();
-        deshabilitarGraficasNoDisponibles();
+
         cargarProvincias();
         actualizarDashboard();
         configurarListeners();
@@ -65,7 +63,7 @@ public class DashboardController {
         cargarDatosEmpleadosPorCargo();
     }
 
-    // --- SECCIÓN DE CARGA DE DATOS (CON ETIQUETAS MEJORADAS) ---
+    //SECCIÓN DE CARGA DE DATOS PARA LOS FILTROS
 
     private void cargarDatosAprobacion() {
         String sql = "SELECT CASE WHEN promedio >= 3.0 THEN 'Aprobados' ELSE 'Reprobados' END AS estado, COUNT(*) AS cantidad " +
@@ -94,7 +92,6 @@ public class DashboardController {
             graficaAprob.setData(data);
             graficaAprob.setTitle("Estadística de Aprobación");
 
-            // ¡Paso Clave! Hacemos visibles las etiquetas sobre el gráfico
             graficaAprob.setLabelsVisible(true);
 
         } catch (SQLException e) {
@@ -166,8 +163,7 @@ public class DashboardController {
             institucionChart.getData().clear();
             institucionChart.getData().add(series);
             institucionChart.setTitle(series.getData().isEmpty() ? "Estudiantes (Sin Datos)" : "Estudiantes por Institución");
-
-            // Añadir etiquetas numéricas a las barras
+            //SE AÑADEN LABELS PARA INDENTIFICAR EN LAS GRÁFICAS.
             addLabelsToBarChart(institucionChart);
 
         } catch (SQLException e) {
@@ -189,7 +185,7 @@ public class DashboardController {
             graficaPaneNivelE.getData().add(series);
             graficaPaneNivelE.setTitle("Empleados por Cargo");
 
-            // Añadir etiquetas numéricas a las barras
+
             addLabelsToBarChart(graficaPaneNivelE);
 
         } catch (SQLException e) {
@@ -197,10 +193,6 @@ public class DashboardController {
         }
     }
 
-    /**
-     * NUEVO MÉTODO DE AYUDA: Recorre un gráfico de barras y añade una etiqueta
-     * de texto con el valor numérico sobre cada barra.
-     */
     private void addLabelsToBarChart(BarChart<String, Number> chart) {
         for (XYChart.Series<String, Number> series : chart.getData()) {
             for (XYChart.Data<String, Number> data : series.getData()) {
@@ -224,9 +216,6 @@ public class DashboardController {
         }
     }
 
-    // --- El resto del código permanece igual ---
-
-    //<editor-fold desc="Cargas, Filtros y Otros Métodos de Ayuda (Sin cambios)">
     private Connection conectar() throws SQLException {
         final String URL = "jdbc:mysql://nozomi.proxy.rlwy.net:51090/bd_escolar";
         final String USUARIO = "root";
@@ -308,10 +297,7 @@ public class DashboardController {
         cmbAnioacademico.setDisable(true);
         cmbSeccion.setDisable(true);
     }
-    private void deshabilitarGraficasNoDisponibles() {
-        graficaPaneAsistencia.setTitle("Asistencia (No Disponible)");
-        graficaPaneAsistencia.getData().clear();
-    }
+
     @FXML
     private void reiniciarFiltros() {
         cmbProvincia.setValue(null);
@@ -375,5 +361,5 @@ public class DashboardController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    //</editor-fold>
+
 }
