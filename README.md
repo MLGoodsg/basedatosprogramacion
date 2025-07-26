@@ -48,7 +48,7 @@ Docente guía: Prof. Rodrigo Yángüez
 
 ## 🚧 Estado del Proyecto
 
-🔹 Versión Beta activa  
+🔹 Versión Beta  
 🔹 Funciones básicas de gestión administrativa completadas  
 🔹 En desarrollo mejoras de interfaz y funcionalidades.
 
