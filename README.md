@@ -32,17 +32,6 @@ Actualmente en etapa de desarrollo, el sistema incluye funcionalidades centrales
 | **MySQL**  | Manejo de datos                     |
 | **GitHub** | Control de versiones y colaboración |
 
----
-
-## 📁 Estructura del Repositorio
-
-- `src/` — Código fuente de LexyCo
-- `docs/` — Documentación técnica del proyecto
-- `sql/` — Scripts para estructura de base de datos
-- `assets/` — Logos e imágenes del sistema
-- `README.md` — Descripción general y guía del proyecto
-
----
 
 ## 👨‍💻 Autores
 
@@ -54,7 +43,6 @@ Actualmente en etapa de desarrollo, el sistema incluye funcionalidades centrales
 *Proyecto desarrollado por estudiantes de Ingeniería de Software de la **Universidad Tecnológica de Panamá***
 Materia: Programación I
 Docente guía: Prof. Rodrigo Yángüez
-
 
 ---
 
